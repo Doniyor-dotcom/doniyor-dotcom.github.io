@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Letter Flipper</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+.container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  min-height: 200px;      /* Ensure some height for centering */
+}
+.letter {
+  width: 50px; /* Adjust as needed */
+  height: 50px; /* Adjust as needed */
+  margin: 5px;
+  perspective: 1000px; /* For the 3D flip effect */
+  cursor: pointer; /* Indicate clickable */
+}
+
+.letter-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.letter-front, .letter-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide the back side */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em; /* Adjust font size */
+}
+
+.letter-front {
+  background-color: #eee; /* Light gray background */
+  color: #333; /* Dark gray text */
+}
+
+.letter-back {
+  background-color: #fff; /* White background */
+  color: #000; /* Black text */
+  transform: rotateY(180deg); /* Initially flipped */
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+#input-area {
+  margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+
+<div id="input-area">
+  Enter a word: <input type="text" id="word-input">
+  <button onclick="createLetters()">Go</button>
+</div>
+
+<div class="container" id="letter-container">
+  </div>
+
+<script>
+function createLetters() {
+  const word = document.getElementById('word-input').value.toLowerCase();
+  const container = document.getElementById('letter-container');
+  container.innerHTML = ''; // Clear previous letters
+
+  for (let i = 0; i < word.length; i++) {
+    const letter = word[i];
+    const letterDiv = document.createElement('div');
+    letterDiv.classList.add('letter');
+
+    letterDiv.innerHTML = `
+      <div class="letter-inner">
+        <div class="letter-front">${letter.toUpperCase()}</div>
+        <div class="letter-back">${letter.toUpperCase()}</div>
+      </div>
+    `;
+
+    letterDiv.addEventListener('click', () => {
+        letterDiv.querySelector('.letter-inner').classList.toggle('flipped');
+    });
+
+    container.appendChild(letterDiv);
+  }
+}
+
+</script>
+
+</body>
+</html>
