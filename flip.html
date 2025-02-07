@@ -18,7 +18,7 @@ body {
   margin: 5px;
   perspective: 1000px;
   cursor: pointer;
-  position: relative; /* Needed for overlay positioning */
+  position: relative;
 }
 
 .letter-inner {
@@ -61,12 +61,18 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white; /* Text color if needed */
-  /* Add any loading indicator or initial text here if you want */
+  /* Now hides the front initially */
+  opacity: 1; /* Make sure it is visible initially */
+  transition: opacity 0.5s ease; /* Smooth transition */
+}
+
+.overlay.hidden {
+    opacity: 0; /* Hide the overlay on click */
+    pointer-events: none; /* Make it unclickable */
 }
 
 #input-area {
@@ -100,14 +106,14 @@ function createLetters() {
         <div class="letter-front">${letter.toUpperCase()}</div>
         <div class="letter-back">${letter.toUpperCase()}</div>
       </div>
-      <div class="overlay"></div>  `;
+      <div class="overlay"></div>  `; // Overlay is now inside
 
     letterDiv.addEventListener('click', () => {
         const inner = letterDiv.querySelector('.letter-inner');
         const overlay = letterDiv.querySelector('.overlay');
 
         inner.classList.toggle('flipped');
-        overlay.style.display = 'none'; // Hide overlay on click
+        overlay.classList.add('hidden'); // Use CSS transition to hide smoothly
 
     });
 
