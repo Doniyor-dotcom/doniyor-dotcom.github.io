@@ -8,16 +8,17 @@ body {
 }
 .container {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center;     /* Center vertically */
-  min-height: 200px;      /* Ensure some height for centering */
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
 }
 .letter {
-  width: 50px; /* Adjust as needed */
-  height: 50px; /* Adjust as needed */
+  width: 50px;
+  height: 50px;
   margin: 5px;
-  perspective: 1000px; /* For the 3D flip effect */
-  cursor: pointer; /* Indicate clickable */
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative; /* Needed for overlay positioning */
 }
 
 .letter-inner {
@@ -32,26 +33,40 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden; /* Hide the back side */
+  backface-visibility: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2em; /* Adjust font size */
+  font-size: 2em;
 }
 
 .letter-front {
-  background-color: #eee; /* Light gray background */
-  color: #333; /* Dark gray text */
+  background-color: #eee;
+  color: #333;
 }
 
 .letter-back {
-  background-color: #fff; /* White background */
-  color: #000; /* Black text */
-  transform: rotateY(180deg); /* Initially flipped */
+  background-color: #fff;
+  color: #000;
+  transform: rotateY(180deg);
 }
 
 .flipped {
   transform: rotateY(180deg);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Text color if needed */
+  /* Add any loading indicator or initial text here if you want */
 }
 
 #input-area {
@@ -67,13 +82,13 @@ body {
 </div>
 
 <div class="container" id="letter-container">
-  </div>
+</div>
 
 <script>
 function createLetters() {
   const word = document.getElementById('word-input').value.toLowerCase();
   const container = document.getElementById('letter-container');
-  container.innerHTML = ''; // Clear previous letters
+  container.innerHTML = '';
 
   for (let i = 0; i < word.length; i++) {
     const letter = word[i];
@@ -85,16 +100,20 @@ function createLetters() {
         <div class="letter-front">${letter.toUpperCase()}</div>
         <div class="letter-back">${letter.toUpperCase()}</div>
       </div>
-    `;
+      <div class="overlay"></div>  `;
 
     letterDiv.addEventListener('click', () => {
-        letterDiv.querySelector('.letter-inner').classList.toggle('flipped');
+        const inner = letterDiv.querySelector('.letter-inner');
+        const overlay = letterDiv.querySelector('.overlay');
+
+        inner.classList.toggle('flipped');
+        overlay.style.display = 'none'; // Hide overlay on click
+
     });
 
     container.appendChild(letterDiv);
   }
 }
-
 </script>
 
 </body>
