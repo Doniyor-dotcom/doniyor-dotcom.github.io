@@ -1,0 +1,46 @@
+{
+  "team": {
+    "tbgRole": "Long-time Linux user from the West Coast of Canada",
+    "technetiumRole": "Technology enthusiast from the United States who loves to solve problems",
+    "tilliDieRole": "Artist and Wallpaper contributor from the United Kingdom",
+    "title": "Meet the team \uD83D\uDC69\u200D\uD83D\uDCBB",
+    "bluishHumilityRole": "Forum moderator and wiki contributor",
+    "sgsRole": "Co-Founder of Garuda Linux",
+    "daltoRole": "Developer and avid Linux enthusiast from the United States",
+    "fgdRole": "A passionate Linux user from the East Coast of Canada and co-maintainer of dr460nized Edition",
+    "tneRole": "Developer from Austria. Maintains server infrastructure, Garuda tools, automation and some GUI applications. Eagle-eyed",
+    "yorperRole": "An IT professional from Australia, Linux user & enthusiast since the late 90s. Maintains the XFCE edition of Garuda Linux",
+    "filoRole": "Forum moderator and helper from Italy",
+    "namanRole": "Young web developer from Haryana, India who maintains the Cinnamon edition",
+    "nicoRole": "A Linux enthusiast from Germany who mainly maintains the servers & dr460nized edition",
+    "vo1dsh4d0wRole": "Skilled Full-stack developer from Germany who maintains the garuda-ng Angular component library"
+  },
+  "occupation": {
+    "moderator": "Forum moderator",
+    "maintainer": "Maintainer",
+    "chaoticAurTeam": "Chaotic-AUR team",
+    "founder": "Founder",
+    "longTimeSupporter": "Long-time supporter",
+    "editionMaintainer": "Edition maintainer",
+    "appMaintainer": "Application maintainer",
+    "wikiContributor": "Wiki contributor",
+    "developer": "Developer",
+    "contributor": "Contributor",
+    "infra": "Infrastructure",
+    "artist": "Artist",
+    "fullStack": "Full stack developer",
+    "devOps": "DevOps",
+    "garudaNg": "Garuda-ng maintainer"
+  },
+  "specialThanks": {
+    "title": "Special thanks are going to these awesome people \uD83E\uDD73",
+    "librewishRole": "Co-Founder of Garuda Linux. Actively contributed in Garuda Linux from 2020 to 2022. Currently on hiatus to concentrate on furthering his career in the IT sector",
+    "jonathonRole": "A great mentor and visionary leader. Provided great advice and assistance to the Garuda project while he was still with us",
+    "zoerudaRole": "Computer enthusiast and student from the United States. Actively helped in the forum and maintained the MATE edition from 2021 to 2023",
+    "rohitRole": "A FOSS enthusiast, likes to experiment with linux desktop and maintained the late Qtile version",
+    "petsamRole": "An opinionated, old-school, open-source lover and Archlinux user from Greece"
+  },
+  "subtitleHtml": "Garuda Linux is an opinionated Linux distribution based on Arch Linux.<br>We focus on providing a beautiful and easy-to-use desktop experience for everyone.",
+  "title": "About Us",
+  "maintains": "Maintained editions"
+}
