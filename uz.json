@@ -2,7 +2,7 @@
   "hero": {
     "underline": "Oddiylik – asosiy tamoyil, qudrat esa zarurat tug‘ilganda.",
     "description": "Sevimli Linux distributivingiz – Arch Linux asosini oson va qulay qilish uchun ishlab chiqilgan, aniq yo‘naltirilgan sozlamalar bilan.",
-    "editions": "Versiyalarni ko'rish",
+    "editions": "Nashrlarni kashf etish",
     "learnMore": "Qanday o‘rnatish mumkin"
   },
   "common": {
@@ -14,7 +14,7 @@
   },
   "menu": {
     "home": "Bosh sahifa",
-    "editions": "Versiyalar",
+    "editions": "Nashrlar",
     "installation": "O'rnatish",
     "blog": "Blog",
     "donate": "Xayriya qilish",
@@ -56,24 +56,24 @@
     "title": "Asosiy jihatlar"
   },
   "blog": {
-    "subtitle": "Stay up to date with the latest news of your favorite Linux distribution.",
+    "subtitle": "Sevimli Linux distributsiyangizning so‘nggi yangiliklaridan xabardor bo‘ling.",
     "title": "Blog",
-    "readMore": "Read older posts on the forum"
+    "readMore": "Eskiroq postlarni forumda o‘qing"
   },
   "news": {
-    "comments": "comments",
-    "fullThread": "View full thread",
-    "participate": "Participate in the forum",
-    "reactions": "reactions",
-    "views": "views"
+    "comments": "izohlar",
+    "fullThread": "To‘liq mavzuni ko‘rish",
+    "participate": "Forumda qatnashish",
+    "reactions": "reaksiyalar",
+    "views": "kuzatuvlar"
   },
   "coc": {
-    "title": "Code of Conduct",
-    "subtitle": "We are committed to providing a friendly, safe and welcoming environment for all."
+    "title": "Xulq-atvor kodeksi",
+    "subtitle": "Barchaga do‘stona, xavfsiz va samimiy muhit yaratishga sodiqmiz."
   },
   "editions": {
-    "title": "Downloads",
-    "subtitle": "Enjoy the various editions of Garuda Linux.",
+    "title": "Yuklanmalar",
+    "subtitle": "Garuda Linuxning turli nashrlaridan bahramand bo‘ling.",
     "learnMore": "Learn more",
     "download": "Download",
     "advancedUsers": "For advanced users only",
