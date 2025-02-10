@@ -19,7 +19,7 @@
     "blog": "Blog",
     "donate": "Xayriya qilish",
     "aboutUs": "Biz haqimizda",
-    "buildSystem": "Qurish tizimi"
+    "buildSystem": "Yig‘ish tizimi"
   },
   "features": {
     "beautySub": "Go‘zal va zamonaviy dizayn – ishlashni yanada yoqimli qiladi.",
@@ -209,54 +209,54 @@
         "downloadNag": "\"Men Hyprland ishlataman, aytgancha!\" deb hammaga aytishni unutmang!",
         "features": {
           "pro": {
-            "1": "Blurry, beautiful design",
+            "1": "Yorqin, go‘zal dizayn",
             "2": "Perfect for users who like to tinker",
-            "3": "A good choice for those who like to try new things"
+            "3": "Yangi tajribalarni yoqtiradiganlar uchun yaxshi tanlov"
           },
           "con": {
-            "1": "Might be unstable",
-            "2": "Requires some knowledge to troubleshoot issues"
+            "1": "Beqaror bo‘lishi mumkin",
+            "2": "Muammolarni hal qilish uchun biroz bilim talab qiladi"
           }
         }
       },
       "kdeLite": {
-        "description": "A beautiful and modern desktop environment.",
-        "downloadNotice": "This edition requires you to set up most of the theming and device settings yourself. It misses some of the quality of life features Garuda usually provides, which is why we recommend it for advanced users only.",
-        "downloadNag": "The stock KDE experience, grab it while it's hot!",
+        "description": "Go‘zal va zamonaviy ish stoli muhiti.",
+        "downloadNotice": "Ushbu nashrda ko‘pgina mavzular va qurilma sozlamalarini mustaqil o‘rnatishingiz kerak bo‘ladi. U Garuda odatda taqdim etadigan ba’zi qulaylik funksiyalariga ega emas, shu sababli biz uni faqat ilg‘or foydalanuvchilarga tavsiya qilamiz.",
+        "downloadNag": "Standart KDE tajribasi – issig‘ida qo‘lga kiriting!",
         "features": {
           "pro": {
-            "1": "Easy to use",
-            "2": "Stock KDE experience",
-            "3": "Very customizable"
+            "1": "Foydalanish uchun qulay",
+            "2": "Standart KDE tajribasi",
+            "3": "Juda moslashuvchan"
           },
           "con": {
-            "1": "Needs the user to set up most of the theming and device settings",
-            "2": "Might be missing some quality of life features"
+            "1": "Foydalanuvchi ko‘pgina mavzular va qurilma sozlamalarini mustaqil o‘rnatishi kerak",
+            "2": "Ba’zi qulaylik funksiyalari yetishmaydi"
           }
         }
       },
       "garudaNixSubsystem": {
-        "description": "This is technically not a desktop environment, but a subsystem that allows you to run NixOS in a BTRFS sub-volume of the same partition you installed Garuda to. It derives certain settings from your Garuda installation like the user, password or graphics drivers.",
-        "downloadNotice": "This is not an ISO you can boot from. You need to install another Garuda edition (eg. dr460nized) first before installing the Garuda Nix Subsystem via the \"garuda-nix-subsystem\" package. You can find more information on the dedicated documentation page.",
-        "downloadNag": "You must be a real tinkerer, right?",
+        "description": "Bu texnik jihatdan ish stoli muhiti emas, balki Garuda o‘rnatilgan bo‘limdagi BTRFS subhajmida NixOS ishga tushirish imkonini beruvchi subsistemadir. U foydalanuvchi, parol va grafik drayverlar kabi ayrim sozlamalarni Garuda o‘rnatilishidan oladi.",
+        "downloadNotice": "Bu yuklanadigan ISO emas. Avval boshqa Garuda nashrini (masalan, dr460nized) o‘rnatishingiz kerak, so‘ngra \"garuda-nix-subsystem\" paketi orqali Garuda Nix subsistemini o‘rnatishingiz mumkin. Batafsil ma’lumotni maxsus hujjatlar sahifasida topishingiz mumkin.",
+        "downloadNag": "Siz haqiqiy tajriba o‘tkazishni yoqtiradigan foydalanuvchi bo‘lsangiz kerak, to‘g‘rimi?",
         "features": {
           "pro": {
-            "1": "Lets you easily try out NixOS",
-            "2": "Derives certain settings from your Garuda installation, and can be easily removed",
-            "3": "Shares most common home folders with the Garuda installation"
+            "1": "NixOS-ni oson sinab ko‘rish imkonini beradi",
+            "2": "Ba’zi sozlamalarni Garuda o‘rnatilishidan oladi va oson olib tashlanishi mumkin",
+            "3": "Garuda o‘rnatilishi bilan umumiy home papkalarining ko‘p qismini bo‘lishadi"
           },
           "con": {
-            "1": "Only supports the dr460nized style of Garuda",
-            "2": "Should only be used by highly advanced users who like to tinker around with NixOS"
+            "1": "Faqat Garuda’ning dr460nized uslubini qo‘llab-quvvatlaydi",
+            "2": "Faqat NixOS bilan tajriba o‘tkazishni yoqtiradigan ilg‘or foydalanuvchilar uchun tavsiya etiladi"
           }
         }
       }
     }
   },
   "lang": {
-    "title": "Available languages",
-    "active": "Active language",
-    "tooltip": "Please note that blog and news data is only provided in English."
+    "title": "Mavjud tillar",
+    "active": "Faol til",
+    "tooltip": "Faol til"
   },
   "installation": {
     "title": "Installation",
