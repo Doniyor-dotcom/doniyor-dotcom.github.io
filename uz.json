@@ -1,0 +1,324 @@
+{
+  "hero": {
+    "underline": "Oddiylik – asosiy tamoyil, qudrat esa zarurat tug‘ilganda.",
+    "description": "Sevimli Linux distributivingiz – Arch Linux asosini oson va qulay qilish uchun ishlab chiqilgan, aniq yo‘naltirilgan sozlamalar bilan.",
+    "editions": "Discover Editions",
+    "learnMore": "Qanday o‘rnatish mumkin"
+  },
+  "common": {
+    "contact": "Aloqa",
+    "gitlab": "GitLab",
+    "telegram": "Telegram",
+    "features": "Xususiyatlar",
+    "privacyPolicy": "Maxfiylik siyosati"
+  },
+  "menu": {
+    "home": "Bosh sahifa",
+    "editions": "Editions",
+    "installation": "O'rnatish",
+    "blog": "Blog",
+    "donate": "Xayriya qilish",
+    "aboutUs": "Biz haqimizda",
+    "buildSystem": "Build System"
+  },
+  "features": {
+    "beautySub": "A beautiful and modern design, making it a pleasure to work with.",
+    "beautyTitle": "Beautifully designed",
+    "btrfsSub": "BTRFS allows you to easily create snapshots of your system, making it easy to restore in case of issues.",
+    "btrfsTitle": "BTRFS snapshots",
+    "chaoticSub": "Access to the Chaotic-AUR repository, providing thousands of additional packages.",
+    "chaoticTitle": "Chaotic-AUR",
+    "easyUseSub": "We try to make your life easier by providing many quality-of-life features on top of the Arch Linux base.",
+    "easyUseTitle": "Easy to use",
+    "fossSub": "100% free and open-source software. We believe in the power of open-source.",
+    "fossTitle": "Free and open-source",
+    "guiToolsTitle": "Various GUI tools",
+    "guiToolsSub": "We provide a lot of graphical tools to make your life easier, including system management tools, a setup assistant and more.",
+    "headOne": "Simple by default,",
+    "headSub": "Discover the features of our distribution.",
+    "headTwo": "powerful when needed",
+    "subtitle": "Discover the features of our distribution.",
+    "title": "Features"
+  },
+  "highlights": {
+    "assistantSub": "A graphical assistant for power users. Allows you to easily manage your system and its most important settings.",
+    "assistantTitle": "Assistant",
+    "fireDragonSub": "Optimized for performance and privacy, FireDragon is a fork of the excellent Floorp browser - the Vivaldi to Firefox.",
+    "fireDragonTitle": "FireDragon",
+    "gamerSub": "The go-to tool for gamers, making it easy to install the best gaming software for Linux.",
+    "gamerTitle": "Garuda Gamer",
+    "headOne": "Highlights of",
+    "headSub": "Discover the perks of our distribution's custom tools.",
+    "headTwo": "our distribution",
+    "subtitle": "Discover the perks of our distribution's custom tools.",
+    "sysMainSub": "This tool helps overcome common issues that arise when using Arch-based distributions and can warn you about potential issues.",
+    "sysMainTitle": "Garuda System Maintenance",
+    "title": "Highlights"
+  },
+  "blog": {
+    "subtitle": "Stay up to date with the latest news of your favorite Linux distribution.",
+    "title": "Blog",
+    "readMore": "Read older posts on the forum"
+  },
+  "news": {
+    "comments": "comments",
+    "fullThread": "View full thread",
+    "participate": "Participate in the forum",
+    "reactions": "reactions",
+    "views": "views"
+  },
+  "coc": {
+    "title": "Code of Conduct",
+    "subtitle": "We are committed to providing a friendly, safe and welcoming environment for all."
+  },
+  "editions": {
+    "title": "Downloads",
+    "subtitle": "Enjoy the various editions of Garuda Linux.",
+    "learnMore": "Learn more",
+    "download": "Download",
+    "advancedUsers": "For advanced users only",
+    "advancedUseTooltip": "This means either that certain quality-of-life features Garuda usually provides are not available or that the desktop environment changes often. To get the most out of these editions, you should be comfortable with troubleshooting issues on your own.",
+    "regular": {
+      "mokka": {
+        "description": "A beautiful Catppuccin pastel-themed KDE desktop environment.",
+        "downloadNag": "You love blurry interfaces, do you? Nice choice!",
+        "features": {
+          "pro": {
+            "1": "Easy to use",
+            "2": "Beautiful sleek design",
+            "3": "Very customizable",
+            "4": "A high amount of additional theme resources"
+          },
+          "con": {
+            "1": "Heavier on resources"
+          }
+        }
+      },
+      "dr460nized": {
+        "description": "The dr460nized editions of Garuda Linux offer a dark, blurry and fully immersive Plasma experience.",
+        "downloadNag": "Blurry interfaces and an expressively colored design? We've got you covered!",
+        "features": {
+          "pro": {
+            "1": "Easy to use",
+            "2": "Beautiful, high-contrast, spiky design",
+            "3": "Very customizable"
+          },
+          "con": {
+            "1": "Heavier on resources",
+            "2": "Might be too colorful for some users"
+          }
+        }
+      },
+      "dr460nized-gaming": {
+        "description": "This Dr460nized edition includes a lot of pre-installed gaming software.",
+        "downloadNag": "You must be a hell of a gamer, good luck and have fun!",
+        "features": {
+          "pro": {
+            "1": "Everything Dr460nized has to offer",
+            "2": "Pre-installed gaming software",
+            "3": "One-stop solution for gamers"
+          },
+          "con": {
+            "1": "Huge download size (>4.7 GB)",
+            "2": "May contain software you don't need"
+          }
+        }
+      },
+      "gnome": {
+        "description": "GNOME is a modern desktop environment which is both clean and beautiful. It is focused on ease of use.",
+        "downloadNag": "A GNOME user it is. You must love simplicity!",
+        "features": {
+          "pro": {
+            "1": "Simplistic design",
+            "2": "Doesn't overwhelm with options",
+            "3": "Default desktop for many Linux distributions"
+          },
+          "con": {
+            "1": "Less configurable than KDE",
+            "2": "Custom-installed extensions are prone to breakage on major updates"
+          }
+        }
+      },
+      "cinnamon": {
+        "description": "A reminiscent of GNOME 2 that offers flexibility, speed, and a slew of features.",
+        "downloadNag": "You must be a fan of the traditional desktop experience, right?",
+        "features": {
+          "pro": {
+            "1": "Traditional design",
+            "2": "Easy to use",
+            "3": "Beautiful design",
+            "4": "Customizable"
+          },
+          "con": {
+            "1": "Heavier on resources"
+          }
+        }
+      },
+      "xfce": {
+        "description": "XFCE aims to be fast and low on system resources, while still being visually appealing and user-friendly.",
+        "downloadNag": "So you must be a fan of the traditional desktop experience, right?",
+        "features": {
+          "pro": {
+            "1": "Very traditional design",
+            "2": "One of the most stable desktop environments",
+            "3": "Light on resources"
+          },
+          "con": {
+            "1": "May be too simplistic for some users",
+            "2": "Not as feature-rich as KDE or GNOME"
+          }
+        }
+      },
+      "sway": {
+        "description": "A traditional window manager experience.",
+        "downloadNag": "Were you looking for a tiling window manager? You found it!",
+        "downloadNotice": "Garuda Sway ships with a completed configuration with easy-to-use keybindings and a cheatsheet to help you get started. Following the Nord color scheme, it is visually appealing and performant, utilising the best of Wayland native alternatives to offer a seamless transition to the Wayland compositor.",
+        "features": {
+          "pro": {
+            "1": "Fast, efficient window management using Wayland",
+            "2": "Keyboard-driven workflow",
+            "3": "Lightweight & minimal",
+            "4": "Highly customizable"
+          },
+          "con": {
+            "1": "Steep learning curve"
+          }
+        }
+      },
+      "i3": {
+        "description": "Another traditional window manager experience.",
+        "downloadNotice": "We ship the configuration with a handy cheatsheet to get you started.",
+        "downloadNag": "Have fun with your tiling window manager!",
+        "features": {
+          "pro": {
+            "1": "Fast, efficient window management using Xorg",
+            "2": "Keyboard-driven workflow",
+            "3": "Lightweight & minimal",
+            "4": "Highly customizable"
+          },
+          "con": {
+            "1": "Steep learning curve"
+          }
+        }
+      }
+    },
+    "advanced": {
+      "hyprland": {
+        "description": "A beautiful and modern window manager.",
+        "downloadNotice": "Please note that you should be comfortable with troubleshooting issues. While popular and beautiful, the Hyprland window manager itself is developed quickly and therefore may be unstable.",
+        "downloadNag": "Don't forget tell everyone you \"use Hyprland, btw\"!",
+        "features": {
+          "pro": {
+            "1": "Blurry, beautiful design",
+            "2": "Perfect for users who like to tinker",
+            "3": "A good choice for those who like to try new things"
+          },
+          "con": {
+            "1": "Might be unstable",
+            "2": "Requires some knowledge to troubleshoot issues"
+          }
+        }
+      },
+      "kdeLite": {
+        "description": "A beautiful and modern desktop environment.",
+        "downloadNotice": "This edition requires you to set up most of the theming and device settings yourself. It misses some of the quality of life features Garuda usually provides, which is why we recommend it for advanced users only.",
+        "downloadNag": "The stock KDE experience, grab it while it's hot!",
+        "features": {
+          "pro": {
+            "1": "Easy to use",
+            "2": "Stock KDE experience",
+            "3": "Very customizable"
+          },
+          "con": {
+            "1": "Needs the user to set up most of the theming and device settings",
+            "2": "Might be missing some quality of life features"
+          }
+        }
+      },
+      "garudaNixSubsystem": {
+        "description": "This is technically not a desktop environment, but a subsystem that allows you to run NixOS in a BTRFS sub-volume of the same partition you installed Garuda to. It derives certain settings from your Garuda installation like the user, password or graphics drivers.",
+        "downloadNotice": "This is not an ISO you can boot from. You need to install another Garuda edition (eg. dr460nized) first before installing the Garuda Nix Subsystem via the \"garuda-nix-subsystem\" package. You can find more information on the dedicated documentation page.",
+        "downloadNag": "You must be a real tinkerer, right?",
+        "features": {
+          "pro": {
+            "1": "Lets you easily try out NixOS",
+            "2": "Derives certain settings from your Garuda installation, and can be easily removed",
+            "3": "Shares most common home folders with the Garuda installation"
+          },
+          "con": {
+            "1": "Only supports the dr460nized style of Garuda",
+            "2": "Should only be used by highly advanced users who like to tinker around with NixOS"
+          }
+        }
+      }
+    }
+  },
+  "lang": {
+    "title": "Available languages",
+    "active": "Active language",
+    "tooltip": "Please note that blog and news data is only provided in English."
+  },
+  "installation": {
+    "title": "Installation",
+    "subtitle": "This page will guide you through the Garuda Linux installation process and provide recommendations.",
+    "setup": "So you've decided to give Garuda Linux a try? Great! Let's have a look at a few things you should know before you start the installation.",
+    "requirements": {
+      "title": "Requirements",
+      "subtitle": "Before you begin, make sure you meet the following requirements",
+      "list": {
+        "storage": "30 GB storage space",
+        "ram": "4 GB of RAM",
+        "opengl": "A graphics card supporting at least OpenGL 3.3",
+        "64bit": "A computer with a 64-bit processor",
+        "usbPre": "A USB stick with at least ",
+        "usbPost": " GB of storage space"
+      },
+      "note": "We specifically set these requirements to ensure a smooth experience and also to have enough storage space for BTRFS snapshots. If your computer meets these requirements, you are good to go!",
+      "startDownload": "Let's download the ISO before continuing with the installation procedure.",
+      "noEditionSelected": "It looks like you haven't selected an edition yet. Please select an edition first",
+      "openGnsDocs": "Garuda Nix Subsystem docs",
+      "selectEdition": "Select an edition",
+      "selectEditionBase": "Select an edition as base"
+    },
+    "download": {
+      "direct": "Direct",
+      "torrent": "Torrent",
+      "sourceforge": "SourceForge",
+      "sha264": "SHA256"
+    },
+    "procedure": {
+      "title": "Installation procedure",
+      "subtitle": "Now that you have met the requirements, you can proceed with the installation.",
+      "biosKeys": "Boot the PC and press the manufacturer specific key to open your device's setup utility. Common keys used: Esc, Delete, F1, F2, F9, F10, F11, or F12.",
+      "biosKeysFind": "Find more common keys and buttons",
+      "secureBoot": "Disable fastboot and secure boot. It may not be possible to disable the latter explicitly - try clearing the secure boot keys instead. Check the manual of your device/motherboard for further info.",
+      "ahci": "Make sure that your device's SATA controller is set to AHCI mode in your device's setup utility - otherwise, the Linux kernel may not be able to detect your drive.",
+      "uefi": "If your firmware supports UEFI, then configure your device to use UEFI only in its setup utility. UEFI is much preferred over BIOS whenever possible.",
+      "createUsb": "Create a bootable USB using DD/Etcher/Ventoy/Rufus. Ventoy is the easiest method and allows multiple editions on the one USB, while DD/Etcher the most reliable.",
+      "bootUsb": "Boot from the USB drive.",
+      "startInstaller": "After booting the live media, start the installer and follow the guided installation procedure.",
+      "loginCreds": "The login credentials are:",
+      "user": "Username",
+      "password": "Password",
+      "recommendations": "While the installation is running, please consider reading the following recommendations."
+    },
+    "considerations": {
+      "title": "Considerations and recommendations",
+      "dualBoot": "Dual-booting Garuda Linux may lead to unexpected issues! Be aware that the other OS may change the EFI boot priorities on UEFI or overwrite the bootloader on BIOS systems.",
+      "vm": "Our distro is optimized for performance on real hardware. Installing in virtual machines is not recommended as it may result in a bad experience due to the missing graphics acceleration.",
+      "snapd": "Try to avoid using Snapd and Flatpak where possible. They are considered unsupported.",
+      "updater": "Garuda Linux ships an update tool, which we strongly recommend using to run system updates. Running pacman directly is not recommended, as garuda-update was specifically designed to help with common issues on Arch-based distributions.",
+      "updaterLink": "Read more about the updater to find out what it does"
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "subtitle": "The page you are looking for does not exist."
+  },
+  "imprint": {
+    "title": "Imprint",
+    "subtitle": "Information according to § 5 TMG.",
+    "contact": "Main contact",
+    "furtherContact": "Further contact methods"
+  }
+}
