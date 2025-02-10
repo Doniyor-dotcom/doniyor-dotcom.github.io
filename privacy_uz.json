@@ -53,5 +53,18 @@
       "object": "Qayta ishlashga e’tiroz bildirish huquqi – Ma’lumotlaringizni qayta ishlashimizga e’tiroz bildirish huquqiga egasiz.",
       "portability": "Ma’lumotlarni ko‘chirish huquqi – Ma’lumotlaringizni boshqa tashkilotga yoki bevosita sizga uzatishimizni talab qilish huquqiga egasiz."
     }
+  },
+  "childrenInfo": {
+    "title": "Bolalar haqida ma’lumot",
+    "content": "Bizning ustuvor yo‘nalishlarimizdan yana biri – internetdan foydalanuvchi bolalarni himoya qilishdir. Biz ota-onalar va vasiylarni farzandlarining onlayn faoliyatini kuzatish, ishtirok etish va yo‘l-yo‘riq ko‘rsatishga undaymiz. garudalinux.org 13 yoshgacha bo‘lgan bolalardan shaxsiy identifikatsiya qilinishi mumkin bo‘lgan ma’lumotlarni ataylab to‘plamaydi. Agar farzandingiz ushbu turdagi ma’lumotlarni bizning veb-saytimizda taqdim etgan deb hisoblasangiz, darhol biz bilan bog‘lanishingizni qat’iy tavsiya qilamiz va biz bunday ma’lumotlarni iloji boricha tezroq o‘chirishga harakat qilamiz.",
+    "content-2": "garudalinux.org 13 yoshgacha bo‘lgan bolalardan shaxsiy identifikatsiya qilinishi mumkin bo‘lgan ma’lumotlarni ataylab to‘plamaydi. Agar farzandingiz ushbu turdagi ma’lumotlarni bizning veb-saytimizda taqdim etgan deb hisoblasangiz, darhol biz bilan bog‘lanishingizni qat’iy tavsiya qilamiz va biz bunday ma’lumotlarni iloji boricha tezroq o‘chirishga harakat qilamiz."
+  },
+  "policyChanges": {
+    "title": "Ushbu Maxfiylik siyosatidagi o‘zgarishlar",
+    "content": "Biz vaqti-vaqti bilan Maxfiylik siyosatimizni yangilashimiz mumkin. Shu sababli, sizdan ushbu sahifani vaqti-vaqti bilan ko‘rib chiqishingizni tavsiya qilamiz. Biz ushbu sahifada yangi Maxfiylik siyosatini joylashtirish orqali har qanday o‘zgarishlar haqida xabar beramiz. Ushbu o‘zgarishlar ushbu sahifaga joylashtirilgan zahotiyoq kuchga kiradi."
+  },
+  "contactUsContent": {
+    "title": "Biz bilan bog‘lanish",
+    "content": "Agar sizda Maxfiylik siyosatimiz bo‘yicha savollar yoki takliflar bo‘lsa, biz bilan team@garudalinux.org elektron pochta manzili orqali bog‘lanishdan tortinmang."
   }
 }
