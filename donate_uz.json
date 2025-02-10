@@ -1,0 +1,29 @@
+{
+  "title": "Xayriya",
+  "subtitle": "Loyihani tirik saqlashga yordam bering.",
+  "listDescription": "Garuda Linux – bu quvnoq va mehnatkash dasturchilar tomonidan boshqariladigan ochiq manbali loyiha. U hech qanday to‘g‘ridan-to‘g‘ri yoki bilvosita daromad keltirmaydi. Biroq, quyidagi kabi xarajatlar mavjud:",
+  "list": {
+    "server": "Server xarajatlari (ijara yoki apparat xaridi)",
+    "bandwidth": "Bog‘liq tarmoq o‘tkazish qobiliyati to‘lovlari",
+    "domain": "Domen xarajatlari (yillik)",
+    "promotion": "Distroni targ‘ib qilish to‘lovlari (ehtimol kerak emas)",
+    "registration": "Garuda'ni har qanday milliy/xalqaro/hukumat agentligi yoki idorasida ro‘yxatdan o‘tkazish uchun to‘lovlar."
+  },
+  "usesTitle": "Xayriyalar qanday ishlatiladi?",
+  "remainOS": "Muhim eslatma: Garuda har doim bepul va ochiq manbali bo‘lib qoladi!",
+  "agreementNotice": "Garuda Linux distributivi mutlaqo bepul va doimo shunday bo‘lib qoladi. Biroq, distribyutivning uzoq muddatli yashovchanligini ta’minlash uchun qo‘shimcha resurslar talab qilinishi mumkinligi tushunildi. Garuda reklama yoki boshqa manbalardan hech qanday daromad olmaydi, shuning uchun distro rivojlanishini moliyalashtirishning yagona yo‘li – xayriyalarni qabul qilishdir. Xayriyalar distribyutivni yanada rivojlantirishga yo‘naltiriladi. Mablag‘lar, asosan, tarmoq o‘tkazish qobiliyati, mirror va server imkoniyatlarini kengaytirish uchun ishlatiladi. Mablag‘lar, shuningdek, Garuda'ni turli milliy/xalqaro tashkilotlarda ro‘yxatdan o‘tkazish yoki Garuda savdo belgilarini/mualliflik huquqlarini himoya qilish uchun ham ishlatilishi mumkin. Sizning ba’zi xayriyalar ham Garuda'ning mavjudligini ta’minlashga yordam beradigan boshqa ajoyib loyihalarni qo‘llab-quvvatlashga yo‘naltirilishi mumkin. Hozirgi bosqichda xarajatlarning aniq taqsimotini oldindan aytish qiyin, ammo xayriya mablag‘larining sarflanishi aniq va shaffof tarzda moliyaviy hisobotlarda ko‘rsatiladi. Ishonch hosil qilingki, sizning hissangiz Garuda distributivining farovonligi va davomiyligi uchun mas’uliyat bilan ishlatiladi.",
+  "agreementNoticeSub": "Iltimos, barcha xayriyalar qaytarib berilmasligini unutmang.",
+  "policyTitle": "Xayriya siyosati",
+  "agree": "Men xayriya siyosati bilan roziman",
+  "availableMethods": "Mavjud xayriya usullari",
+  "method": {
+    "openCollective": {
+      "name": "Open Collective",
+      "button": "Zo‘r, boshladik!"
+    },
+    "liberapay": {
+      "name": "Liberapay",
+      "button": "Men Liberapay'dan foydalanaman!"
+    }
+  }
+}
