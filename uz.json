@@ -256,69 +256,69 @@
   "lang": {
     "title": "Mavjud tillar",
     "active": "Faol til",
-    "tooltip": "Faol til"
+    "tooltip": "E’tibor bering, blog va yangiliklar ma’lumotlari faqat ingliz tilida taqdim etiladi."
   },
   "installation": {
-    "title": "Installation",
-    "subtitle": "This page will guide you through the Garuda Linux installation process and provide recommendations.",
-    "setup": "So you've decided to give Garuda Linux a try? Great! Let's have a look at a few things you should know before you start the installation.",
+    "title": "O‘rnatish",
+    "subtitle": "Ushbu sahifa sizni Garuda Linux o‘rnatish jarayoni bilan tanishtiradi va tavsiyalar beradi.",
+    "setup": "Demak, siz Garuda Linux-ni sinab ko‘rishga qaror qildingiz? Ajoyib! O‘rnatishdan oldin bilishingiz kerak bo‘lgan ba’zi narsalarga nazar tashlaylik.",
     "requirements": {
-      "title": "Requirements",
-      "subtitle": "Before you begin, make sure you meet the following requirements",
+      "title": "Talablar",
+      "subtitle": "Boshlashdan oldin quyidagi talablarga javob berishingizga ishonch hosil qiling",
       "list": {
-        "storage": "30 GB storage space",
-        "ram": "4 GB of RAM",
-        "opengl": "A graphics card supporting at least OpenGL 3.3",
-        "64bit": "A computer with a 64-bit processor",
-        "usbPre": "A USB stick with at least ",
-        "usbPost": " GB of storage space"
+        "storage": "30 GB bo‘sh disk maydoni",
+        "ram": "4 GB operativ xotira (RAM)",
+        "opengl": "Kamida OpenGL 3.3 qo‘llab-quvvatlaydigan grafik karta",
+        "64bit": "64-bit protsessorli kompyuter",
+        "usbPre": "Kamida ... ga ega USB fleshka",
+        "usbPost": "GB bo‘sh xotira maydoni"
       },
-      "note": "We specifically set these requirements to ensure a smooth experience and also to have enough storage space for BTRFS snapshots. If your computer meets these requirements, you are good to go!",
-      "startDownload": "Let's download the ISO before continuing with the installation procedure.",
-      "noEditionSelected": "It looks like you haven't selected an edition yet. Please select an edition first",
-      "openGnsDocs": "Garuda Nix Subsystem docs",
-      "selectEdition": "Select an edition",
-      "selectEditionBase": "Select an edition as base"
+      "note": "Biz ushbu talablarni qulay ishlashni ta’minlash va BTRFS snapshotlari uchun yetarli joy bo‘lishi uchun belgiladik. Agar kompyuteringiz ushbu talablarni qondirsa, demak, hammasi joyida!",
+      "startDownload": "O‘rnatish jarayonini davom ettirishdan oldin ISO faylini yuklab olaylik.",
+      "noEditionSelected": "Siz hali nashrni tanlamaganga o‘xshaysiz. Iltimos, avval nashrni tanlang.",
+      "openGnsDocs": "Garuda Nix Subsistema hujjatlari",
+      "selectEdition": "Nashrni tanlang",
+      "selectEditionBase": "Asos sifatida nashrni tanlang"
     },
     "download": {
-      "direct": "Direct",
+      "direct": "To‘g‘ridan-to‘g‘ri",
       "torrent": "Torrent",
       "sourceforge": "SourceForge",
       "sha264": "SHA256"
     },
     "procedure": {
-      "title": "Installation procedure",
-      "subtitle": "Now that you have met the requirements, you can proceed with the installation.",
-      "biosKeys": "Boot the PC and press the manufacturer specific key to open your device's setup utility. Common keys used: Esc, Delete, F1, F2, F9, F10, F11, or F12.",
-      "biosKeysFind": "Find more common keys and buttons",
-      "secureBoot": "Disable fastboot and secure boot. It may not be possible to disable the latter explicitly - try clearing the secure boot keys instead. Check the manual of your device/motherboard for further info.",
-      "ahci": "Make sure that your device's SATA controller is set to AHCI mode in your device's setup utility - otherwise, the Linux kernel may not be able to detect your drive.",
-      "uefi": "If your firmware supports UEFI, then configure your device to use UEFI only in its setup utility. UEFI is much preferred over BIOS whenever possible.",
-      "createUsb": "Create a bootable USB using DD/Etcher/Ventoy/Rufus. Ventoy is the easiest method and allows multiple editions on the one USB, while DD/Etcher the most reliable.",
-      "bootUsb": "Boot from the USB drive.",
-      "startInstaller": "After booting the live media, start the installer and follow the guided installation procedure.",
-      "loginCreds": "The login credentials are:",
-      "user": "Username",
-      "password": "Password",
-      "recommendations": "While the installation is running, please consider reading the following recommendations."
+      "title": "O‘rnatish jarayoni",
+      "subtitle": "Talablarga javob berganingizdan so‘ng, o‘rnatish jarayonini davom ettirishingiz mumkin.",
+      "biosKeys": "Kompyuterni yoqing va qurilmangizning sozlama menyusini ochish uchun ishlab chiqaruvchi tomonidan belgilangan tugmachani bosing. Odatda ishlatiladigan tugmalar: Esc, Delete, F1, F2, F9, F10, F11 yoki F12.",
+      "biosKeysFind": "Ko‘proq odatiy tugmalar va tugmachalarni toping",
+      "secureBoot": "Fastboot va Secure Boot-ni o‘chirib qo‘ying. Secure Boot-ni to‘g‘ridan-to‘g‘ri o‘chirish imkoni bo‘lmasligi mumkin – buning o‘rniga Secure Boot kalitlarini tozalab ko‘ring. Qo‘shimcha ma’lumot uchun qurilmangiz yoki motherboard qo‘llanmasini tekshiring.",
+      "ahci": "Qurilmangizning sozlama menyusida SATA kontrolleri AHCI rejimiga o‘rnatilganligiga ishonch hosil qiling – aks holda, Linux yadrosi diskni aniqlay olmasligi mumkin.",
+      "uefi": "Agar firmwarengiz UEFI-ni qo‘llab-quvvatlasa, qurilmangiz sozlamalarida faqat UEFI rejimini tanlang. Agar imkon bo‘lsa, UEFI BIOS-ga nisbatan ancha afzalroq hisoblanadi.",
+      "createUsb": "DD, Etcher, Ventoy yoki Rufus yordamida yuklanadigan USB yarating. Eng oson usul – Ventoy, chunki u bitta USB-da bir nechta nashrlarni joylashtirish imkonini beradi. Eng ishonchli usullar esa DD va Etcher hisoblanadi.",
+      "bootUsb": "USB fleshkadan yuklang.",
+      "startInstaller": "Jonli muhit yuklangandan so‘ng, o‘rnatish dasturini ishga tushiring va yo‘riqnoma bo‘yicha o‘rnatish jarayonini davom ettiring.",
+      "loginCreds": "Kirish ma’lumotlari:",
+      "user": "Foydalanuvchi nomi",
+      "password": "Parol",
+      "recommendations": "O‘rnatish jarayoni davom etayotgan paytda, quyidagi tavsiyalarni o‘qib chiqishni tavsiya qilamiz."
     },
     "considerations": {
-      "title": "Considerations and recommendations",
-      "dualBoot": "Dual-booting Garuda Linux may lead to unexpected issues! Be aware that the other OS may change the EFI boot priorities on UEFI or overwrite the bootloader on BIOS systems.",
-      "vm": "Our distro is optimized for performance on real hardware. Installing in virtual machines is not recommended as it may result in a bad experience due to the missing graphics acceleration.",
-      "snapd": "Try to avoid using Snapd and Flatpak where possible. They are considered unsupported.",
-      "updater": "Garuda Linux ships an update tool, which we strongly recommend using to run system updates. Running pacman directly is not recommended, as garuda-update was specifically designed to help with common issues on Arch-based distributions.",
-      "updaterLink": "Read more about the updater to find out what it does"
+      "title": "E’tibor berilishi kerak bo‘lgan jihatlar va tavsiyalar",
+      "dualBoot": "Garuda Linux-ni boshqa operatsion tizim bilan qo‘shma yuklash kutilmagan muammolarga olib kelishi mumkin! Boshqa tizim UEFI-da EFI yuklash ustuvorliklarini o‘zgartirishi yoki BIOS tizimlarida yuklovchini qayta yozishi mumkinligini unutmang.",
+      "vm": "Bizning distributiv haqiqiy apparat uchun ishlashga optimallashtirilgan. Virtual mashinalarga o‘rnatish tavsiya etilmaydi, chunki grafik tezlashtirish yetishmasligi sababli yomon tajribaga olib kelishi mumkin.",
+      "snapd": "Iloji bo‘lsa, Snapd va Flatpak-dan foydalanishdan saqlaning. Ular qo‘llab-quvvatlanmaydigan texnologiyalar hisoblanadi.",
+      "updater": "Garuda Linux tizim yangilanishlari uchun maxsus yangilash vositasini taqdim etadi, va biz uni ishlatishni qat’iy tavsiya qilamiz. To‘g‘ridan-to‘g‘ri pacman ishlatish tavsiya etilmaydi, chunki garuda-update aynan Arch asosidagi distributivlardagi keng tarqalgan muammolarni hal qilish uchun yaratilgan.",
+      "updaterLink": "Yangilash vositasi nima qilishi haqida batafsil ma’lumot oling."
     }
   },
   "notFound": {
-    "title": "Page not found",
-    "subtitle": "The page you are looking for does not exist."
+    "title": "Sahifa topilmadi",
+    "subtitle": "Siz izlayotgan sahifa mavjud emas."
   },
   "imprint": {
-    "title": "Imprint",
-    "subtitle": "Information according to § 5 TMG.",
-    "contact": "Main contact",
-    "furtherContact": "Further contact methods"
+    "title": "Mualliflik ma’lumotlari",
+    "subtitle": "§ 5 TMG ga muvofiq ma’lumot.",
+    "contact": "Asosiy aloqa",
+    "furtherContact": "Qo‘shimcha aloqa usullari"
   }
 }
