@@ -1,0 +1,57 @@
+{
+  "title": "Maxfiylik siyosati",
+  "subtitle": "Biz sizning maxfiyligingizni himoya qilishga sodiqmiz.",
+  "intro": "garudalinux.org sayti, https://*.garudalinux.org orqali kirish mumkin bo‘lgan holda, bizning asosiy ustuvorliklarimizdan biri tashrif buyuruvchilarimizning maxfiyligini ta’minlashdir. Ushbu Maxfiylik siyosati hujjati garudalinux.org tomonidan yig‘iladigan va qayd etiladigan ma’lumotlar turlari hamda ularni qanday ishlatishimizni o‘z ichiga oladi.",
+  "contactUs": "Agar sizda qo‘shimcha savollar bo‘lsa yoki Maxfiylik siyosatimiz haqida batafsil ma’lumot kerak bo‘lsa, biz bilan bog‘lanishdan tortinmang.",
+  "appliesTo": "Ushbu Maxfiylik siyosati faqat bizning onlayn faoliyatimizga tegishli bo‘lib, faqatgina *.garudalinux.org saytida foydalanuvchilar tomonidan taqdim etilgan yoki yig‘ilgan ma’lumotlar uchun amal qiladi. Ushbu siyosat faqat veb-xizmatlarimiz orqali to‘plangan har qanday ma’lumotlarga tatbiq etiladi.",
+  "consent": {
+    "title": "Rozilik",
+    "subtitle": "Bizning veb-saytimizdan foydalangan holda, siz Maxfiylik siyosatimizga rozilik bildirgan va uning shartlariga rozi bo‘lgan bo‘lasiz."
+  },
+  "collectedInfo": {
+    "title": "Biz yig‘adigan ma’lumotlar",
+    "subtitle": "Sizdan so‘raladigan shaxsiy ma’lumotlar va ularni nima sababdan so‘rayotganimiz, sizga ochiq va tushunarli tarzda tushuntiriladi.",
+    "contactInfo": "Agar siz biz bilan to‘g‘ridan-to‘g‘ri bog‘lansangiz, biz siz haqingizda qo‘shimcha ma’lumotlar, masalan, ismingiz, elektron pochta manzilingiz, bizga yuborgan xabaringiz mazmuni va ilovalar hamda boshqa har qanday ma’lumotlarni qabul qilishimiz mumkin.",
+    "registerAccount": "Akkount ro‘yxatdan o‘tkazishda biz elektron pochta manzilingiz, foydalanuvchi nomingiz va boshqa tegishli ma’lumotlarni so‘rashimiz mumkin."
+  },
+  "useFor": {
+    "title": "Sizning ma’lumotlaringizdan qanday foydalanamiz",
+    "useTo": "Biz yig‘ilgan ma’lumotlardan faqat quyidagi maqsadlarda foydalanamiz:",
+    "provideService": "Infratuzilmamizni ta’minlash, boshqarish va qo‘llab-quvvatlash",
+    "adapt": "O‘zgarayotgan talab va ehtiyojlarga moslashish",
+    "send": "Agar ro‘yxatdan o‘tgan bo‘lsangiz, sizga elektron xabarlar yuborish",
+    "misuse": "Infratuzilmadan noto‘g‘ri foydalanish holatlarini aniqlash va oldini olish",
+    "noInterest": "Biz sizning shaxsiy ma’lumotlaringizga qiziqmaymiz va faqat xizmatlarimizni ta’minlash uchun zarur bo‘lgan eng kam miqdordagi ma’lumotlarni saqlaymiz."
+  },
+  "logFiles": {
+    "title": "Jurnal fayllari",
+    "content": "garudalinux.org saytida jurnal fayllaridan foydalanishning standart tartibiga rioya qilinadi. Ushbu fayllar saytga tashrif buyurgan mehmonlarni qayd etadi. Barcha hosting kompaniyalari buni amalga oshiradi va bu hosting xizmatlarining tahliliy jarayonining bir qismidir. Jurnal fayllari tomonidan to‘plangan ma’lumotlar internet protokoli (IP) manzillari, brauzer turi, internet xizmat provayderi (ISP), sana va vaqt muhrlari, yo‘naltiruvchi/chiquvchi sahifalar va mumkin bo‘lsa bosishlar sonini o‘z ichiga oladi. Ushbu ma’lumotlar shaxsiy identifikatsiya qilish mumkin bo‘lgan hech qanday ma’lumot bilan bog‘liq emas. Ushbu ma’lumotlarning asosiy maqsadi foydalanishni tahlil qilish, saytlarni boshqarish va diagnostika ma’lumotlarini yig‘ishdir. Jurnallar 30 kundan keyin avtomatik ravishda o‘chiriladi."
+  },
+  "cookies": {
+    "title": "Cookie fayllar va veb-mayoqlar",
+    "content": "Barcha boshqa veb-saytlar singari, garudalinux.org ham \"cookie\" fayllaridan foydalanadi. Ushbu cookie’lar tashrif buyuruvchilarning afzalliklari va ular saytimizda tashrif buyurgan sahifalar kabi ma’lumotlarni saqlash uchun ishlatiladi. Ushbu ma’lumotlar foydalanuvchilarni veb-xizmatlarda tizimga kirgan holda saqlash va veb-saytning funksionalligini ta’minlash uchun qo‘llaniladi.",
+    "disable": "Siz cookie’larni brauzeringiz sozlamalari orqali o‘chirib qo‘yishingiz mumkin. Muayyan brauzerlar bilan cookie boshqaruvi haqida batafsil ma’lumot brauzerlarning rasmiy veb-saytlarida mavjud."
+  },
+  "thirdParty": {
+    "title": "Uchinchi tomon maxfiylik siyosati",
+    "content": "garudalinux.org Maxfiylik siyosati infratuzilmamizda foydalanadigan ayrim xizmatlarga tatbiq etilmaydi. Shuning uchun, biz sizga ushbu uchinchi tomon xizmatlarining tegishli Maxfiylik siyosatlari bilan tanishishni tavsiya qilamiz.",
+    "used": "Foydalaniladigan uchinchi tomon xizmatlari:",
+    "list": {
+      "cloudflare": "Turli tahdidlardan himoya qilish uchun Cloudflare",
+      "hetzner": "Server va zaxira ma’lumotlar uchun Hetzner",
+      "netcup": "Pochta serverimiz uchun Netcup"
+    }
+  },
+  "dataProtectionRights": {
+    "title": "GDPR ma’lumotlarni himoya qilish huquqlari",
+    "intro": "Biz sizning barcha ma’lumotlarni himoya qilish huquqlaringiz haqida to‘liq xabardor bo‘lishingizni ta’minlashni istaymiz. Har bir foydalanuvchi quyidagi huquqlarga ega:",
+    "rights": {
+      "access": "Kirish huquqi – Siz shaxsiy ma’lumotlaringiz nusxalarini talab qilish huquqiga egasiz.",
+      "rectification": "Tuzatish huquqi – Agar bizda noto‘g‘ri ma’lumot bo‘lsa, uni to‘g‘rilashni talab qilish huquqiga egasiz.",
+      "erase": "O‘chirish huquqi – Muayyan shartlar asosida shaxsiy ma’lumotlaringizni o‘chirishni talab qilish huquqiga egasiz.",
+      "restrict": "Qayta ishlashni cheklash huquqi – Ma’lum shartlarda ma’lumotlaringizni qayta ishlashni cheklashni talab qilish huquqiga egasiz.",
+      "object": "Qayta ishlashga e’tiroz bildirish huquqi – Ma’lumotlaringizni qayta ishlashimizga e’tiroz bildirish huquqiga egasiz.",
+      "portability": "Ma’lumotlarni ko‘chirish huquqi – Ma’lumotlaringizni boshqa tashkilotga yoki bevosita sizga uzatishimizni talab qilish huquqiga egasiz."
+    }
+  }
+}
