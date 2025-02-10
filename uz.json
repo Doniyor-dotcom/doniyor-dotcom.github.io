@@ -74,139 +74,139 @@
   "editions": {
     "title": "Yuklanmalar",
     "subtitle": "Garuda Linuxning turli nashrlaridan bahramand bo‘ling.",
-    "learnMore": "Learn more",
-    "download": "Download",
-    "advancedUsers": "For advanced users only",
-    "advancedUseTooltip": "This means either that certain quality-of-life features Garuda usually provides are not available or that the desktop environment changes often. To get the most out of these editions, you should be comfortable with troubleshooting issues on your own.",
+    "learnMore": "Ko'proq o'rganish",
+    "download": "Yuklash",
+    "advancedUsers": "Faqat ilg‘or foydalanuvchilar uchun",
+    "advancedUseTooltip": "Bu, odatda, Garuda taqdim etadigan ayrim qulaylik funksiyalari mavjud emasligini yoki ish stoli muhiti tez-tez o‘zgarib turishini anglatadi. Ushbu nashrlardan maksimal foyda olish uchun muammolarni mustaqil hal qilishga tayyor bo‘lishingiz kerak.",
     "regular": {
       "mokka": {
-        "description": "A beautiful Catppuccin pastel-themed KDE desktop environment.",
-        "downloadNag": "You love blurry interfaces, do you? Nice choice!",
+        "description": "Go‘zal Catppuccin pastel mavzusidagi KDE ish stoli muhiti.",
+        "downloadNag": "Siz yorqin interfeyslarni yoqtirasiz, shundaymi? Ajoyib tanlov!",
         "features": {
           "pro": {
-            "1": "Easy to use",
-            "2": "Beautiful sleek design",
-            "3": "Very customizable",
-            "4": "A high amount of additional theme resources"
+            "1": "Foydalanish uchun qulay",
+            "2": "Go‘zal va zamonaviy dizayn",
+            "3": "Juda moslashuvchan",
+            "4": "Ko‘plab qo‘shimcha mavzu resurslari"
           },
           "con": {
-            "1": "Heavier on resources"
+            "1": "Ko‘proq resurs talab qiladi"
           }
         }
       },
       "dr460nized": {
-        "description": "The dr460nized editions of Garuda Linux offer a dark, blurry and fully immersive Plasma experience.",
-        "downloadNag": "Blurry interfaces and an expressively colored design? We've got you covered!",
+        "description": "Garuda Linuxning dr460nized nashrlari qorong‘i, rangli va to‘liq immersiv Plasma tajribasini taqdim etadi.",
+        "downloadNag": "Yorqin interfeyslar va rang-barang dizayn yoqadimi? Bizda hammasi bor!",
         "features": {
           "pro": {
-            "1": "Easy to use",
-            "2": "Beautiful, high-contrast, spiky design",
-            "3": "Very customizable"
+            "1": "Foydalanish uchun qulay",
+            "2": "Go‘zal, yuqori kontrastli va o‘tkir dizayn",
+            "3": "Juda moslashuvchan"
           },
           "con": {
-            "1": "Heavier on resources",
-            "2": "Might be too colorful for some users"
+            "1": "Ko‘proq resurs talab qiladi",
+            "2": "Ba’zi foydalanuvchilar uchun ortiqcha rang-barang bo‘lishi mumkin"
           }
         }
       },
       "dr460nized-gaming": {
-        "description": "This Dr460nized edition includes a lot of pre-installed gaming software.",
-        "downloadNag": "You must be a hell of a gamer, good luck and have fun!",
+        "description": "Ushbu Dr460nized nashri ko‘plab oldindan o‘rnatilgan o‘yin dasturlarini o‘z ichiga oladi.",
+        "downloadNag": "Siz haqiqiy geymer bo‘lsangiz kerak! Omad va maroqli o‘yin tilaymiz!",
         "features": {
           "pro": {
-            "1": "Everything Dr460nized has to offer",
-            "2": "Pre-installed gaming software",
-            "3": "One-stop solution for gamers"
+            "1": "Dr460nized nashrining barcha imkoniyatlari",
+            "2": "Oldindan o‘rnatilgan o‘yin dasturlari",
+            "3": "Geymerlar uchun mukammal yechim"
           },
           "con": {
-            "1": "Huge download size (>4.7 GB)",
-            "2": "May contain software you don't need"
+            "1": "Juda katta yuklab olish hajmi (>4.7 GB)",
+            "2": "Keraksiz dasturlarni o‘z ichiga olishi mumkin"
           }
         }
       },
       "gnome": {
-        "description": "GNOME is a modern desktop environment which is both clean and beautiful. It is focused on ease of use.",
-        "downloadNag": "A GNOME user it is. You must love simplicity!",
+        "description": "GNOME – zamonaviy, soddaligini va go‘zalligini o‘zida mujassam etgan ish stoli muhiti. U foydalanish qulayligiga asoslangan.",
+        "downloadNag": "Demak, siz GNOME foydalanuvchisiz. Soddalikni yoqtirasiz, shundaymi!",
         "features": {
           "pro": {
-            "1": "Simplistic design",
-            "2": "Doesn't overwhelm with options",
-            "3": "Default desktop for many Linux distributions"
+            "1": "Soddalikka asoslangan dizayn",
+            "2": "Ortiqcha variantlar bilan chalg‘itmaydi",
+            "3": "Ko‘plab Linux distributsiyalari uchun standart ish stoli muhiti"
           },
           "con": {
-            "1": "Less configurable than KDE",
-            "2": "Custom-installed extensions are prone to breakage on major updates"
+            "1": "KDEga qaraganda kamroq moslashuvchan",
+            "2": "Maxsus o‘rnatilgan kengaytmalar yirik yangilanishlarda buzilish ehtimoliga ega"
           }
         }
       },
       "cinnamon": {
-        "description": "A reminiscent of GNOME 2 that offers flexibility, speed, and a slew of features.",
-        "downloadNag": "You must be a fan of the traditional desktop experience, right?",
+        "description": "GNOME 2 ruhini eslatuvchi, moslashuvchanlik, tezlik va ko‘plab imkoniyatlarni taqdim etuvchi ish stoli muhiti.",
+        "downloadNag": "Siz an’anaviy ish stoli tajribasining muxlisi bo‘lsangiz kerak, to‘g‘rimi?",
         "features": {
           "pro": {
-            "1": "Traditional design",
-            "2": "Easy to use",
-            "3": "Beautiful design",
-            "4": "Customizable"
+            "1": "An’anaviy dizayn",
+            "2": "Foydalanish uchun qulay",
+            "3": "Go‘zal dizayn",
+            "4": "Moslashuvchan"
           },
           "con": {
-            "1": "Heavier on resources"
+            "1": "Ko‘proq resurs talab qiladi"
           }
         }
       },
       "xfce": {
-        "description": "XFCE aims to be fast and low on system resources, while still being visually appealing and user-friendly.",
-        "downloadNag": "So you must be a fan of the traditional desktop experience, right?",
+        "description": "XFCE tezkor va tizim resurslarini kam sarflovchi bo‘lishni maqsad qiladi, shu bilan birga chiroyli va foydalanuvchi uchun qulay bo‘lib qoladi.",
+        "downloadNag": "Demak, siz an’anaviy ish stoli tajribasining muxlisi bo‘lsangiz kerak, to‘g‘rimi?",
         "features": {
           "pro": {
-            "1": "Very traditional design",
-            "2": "One of the most stable desktop environments",
-            "3": "Light on resources"
+            "1": "Juda an’anaviy dizayn",
+            "2": "Eng barqaror ish stoli muhitlaridan biri",
+            "3": "Tizim resurslarini kam sarflaydi"
           },
           "con": {
-            "1": "May be too simplistic for some users",
-            "2": "Not as feature-rich as KDE or GNOME"
+            "1": "Ba’zi foydalanuvchilar uchun haddan tashqari sodda bo‘lishi mumkin",
+            "2": "KDE yoki GNOME kabi ko‘p funksiyalarga ega emas"
           }
         }
       },
       "sway": {
-        "description": "A traditional window manager experience.",
-        "downloadNag": "Were you looking for a tiling window manager? You found it!",
-        "downloadNotice": "Garuda Sway ships with a completed configuration with easy-to-use keybindings and a cheatsheet to help you get started. Following the Nord color scheme, it is visually appealing and performant, utilising the best of Wayland native alternatives to offer a seamless transition to the Wayland compositor.",
+        "description": "An’anaviy oynalar boshqaruvchisi tajribasi.",
+        "downloadNag": "Tiling window manager qidiryapsizmi? Topdingiz!",
+        "downloadNotice": "Garuda Sway tayyor sozlamalar, qulay klaviatura qisqa yo‘llari va boshlang‘ich qo‘llanma bilan birga keladi. Nord rang sxemasiga asoslangan bo‘lib, u nafaqat chiroyli, balki yuqori samaradorlikka ega. Wayland uchun eng yaxshi mahalliy alternativalarni ishlatib, Wayland kompozitoriga silliq o‘tishni ta’minlaydi.",
         "features": {
           "pro": {
-            "1": "Fast, efficient window management using Wayland",
-            "2": "Keyboard-driven workflow",
-            "3": "Lightweight & minimal",
-            "4": "Highly customizable"
+            "1": "Wayland asosida tez va samarali oyna boshqaruvi",
+            "2": "Klaviatura orqali boshqariladigan ish jarayoni",
+            "3": "Yengil va minimalistik",
+            "4": "Juda moslashuvchan"
           },
           "con": {
-            "1": "Steep learning curve"
+            "1": "O‘rganish uchun murakkab"
           }
         }
       },
       "i3": {
-        "description": "Another traditional window manager experience.",
-        "downloadNotice": "We ship the configuration with a handy cheatsheet to get you started.",
-        "downloadNag": "Have fun with your tiling window manager!",
+        "description": "Yana bir an’anaviy oynalar boshqaruvchisi varianti.",
+        "downloadNotice": "Boshlash uchun qulay qo‘llanma bilan tayyor sozlamalarni taqdim etamiz.",
+        "downloadNag": "Tiling window manager bilan maroqli ishlang!",
         "features": {
           "pro": {
-            "1": "Fast, efficient window management using Xorg",
-            "2": "Keyboard-driven workflow",
-            "3": "Lightweight & minimal",
-            "4": "Highly customizable"
+            "1": "Xorg asosida tez va samarali oyna boshqaruvi",
+            "2": "Klaviatura orqali boshqariladigan ish jarayoni",
+            "3": "Yengil va minimalistik",
+            "4": "Juda moslashuvchan"
           },
           "con": {
-            "1": "Steep learning curve"
+            "1": "O‘rganish uchun murakkab"
           }
         }
       }
     },
     "advanced": {
       "hyprland": {
-        "description": "A beautiful and modern window manager.",
-        "downloadNotice": "Please note that you should be comfortable with troubleshooting issues. While popular and beautiful, the Hyprland window manager itself is developed quickly and therefore may be unstable.",
-        "downloadNag": "Don't forget tell everyone you \"use Hyprland, btw\"!",
+        "description": "Go‘zal va zamonaviy oynalar boshqaruvchisi.",
+        "downloadNotice": "Shuni yodda tutingki, muammolarni mustaqil hal qilishga tayyor bo‘lishingiz kerak. Hyprland juda mashhur va chiroyli bo‘lsa-da, tez rivojlanayotgan loyihadir, shuning uchun u beqaror bo‘lishi mumkin.",
+        "downloadNag": "\"Men Hyprland ishlataman, aytgancha!\" deb hammaga aytishni unutmang!",
         "features": {
           "pro": {
             "1": "Blurry, beautiful design",
