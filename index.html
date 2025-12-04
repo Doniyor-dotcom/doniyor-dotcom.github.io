@@ -1,135 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DoniyorProgrammer</title>
-  <link rel="stylesheet" href="static/css/loading.css">
-  <meta name="description" content="Homepage of Doniyor">
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#663399">
+    <link rel="stylesheet" href="static/css/loading.css">
+    <title>DoniyorProgrammer</title>
+    <meta name="keywords" content="homepage">
+    <meta name="description" content="Homepage of Doniyor">
 </head>
 
 <body class="locked">
-  <div class="self-avatar flex-center">
-    <div class="loading-mask fixed-layer no-delay"></div>
-    <div class="loading-wrapper">
-      <svg class="loading-indicator no-delay" width="128" height="128">
-        <g class="circle-rotating">
-          <g class="circle-step">
-            <circle cx="64" cy="64" r="56" class="circle-line"></circle>
-          </g>
-        </g>
-      </svg>
-      <img alt="Picture of DoniyorProgrammer" src="static/img/avatar.webp" class="avatar-img no-delay" />
+    <div class="self-avatar flex-center">
+        <div class="loading-mask fixed-layer no-delay"></div>
+        <div class="loading-wrapper">
+            <svg class="loading-indicator no-delay" width="128" height="128">
+                <g class="circle-rotating">
+                    <g class="circle-step">
+                        <circle cx="64" cy="64" r="56" class="circle-line"></circle>
+                    </g>
+                </g>
+            </svg>
+            <img alt="Picture of DoniyorProgrammer" src="static/img/avatar.webp" class="avatar-img no-delay" />
+        </div>
+        <div class="loading-text text-center">
+            <p class="loading-pre">Loading...</p>
+            <p class="avatar-name">DoniyorProgrammer</p>
+            <p class="dokidoki-text"></p>
+        </div>
     </div>
-    <div class="loading-text text-center">
-      <p class="loading-pre">Loading...</p>
-      <p class="avatar-name">DoniyorProgrammer</p>
-      <p class="dokidoki-text"></p>
+    <div class="background-layer fixed-layer"></div>
+    <div class="background-filter fixed-layer"></div>
+    <div class="content-layer flex-center">
+        <div class="content-container">
+            <div class="self-wrapper">
+                <div class="self-content links-container flex-center text-center">
+                    <a href="https://doniyor.org/blog" class="link-item">
+                        <div class="link-icon"><i class="fa fa-book"></i></div>
+                        <div>Blog</div>
+                    </a>
+                    <a href="https://doniyor.org/about" class="link-item">
+                        <div class="link-icon"><i class="fa fa-user"></i></div>
+                        <div>About</div>
+                    </a>
+                    <a href="https://x.com/Doniyor_Dev" class="link-item">
+                        <div class="link-icon"><i class="fa fa-twitter"></i></div>
+                        <div>X / Twitter</div>
+                    </a>
+                    <a href="https://t.me/doniyorprogrammer" class="link-item">
+                        <div class="link-icon"><i class="fa fa-telegram"></i></div>
+                        <div>Telegram</div>
+                    </a>
+                    <a href="https://github.com/doniyor-programmer" class="link-item">
+                        <div class="link-icon"><i class="fa fa-github"></i></div>
+                        <div>GitHub</div>
+                    </a>
+                </div>
+                <div class="self-content article-container">
+                    <div class="article-content"></div>
+                    <div class="article-loading flex-center">
+                        <svg style="visibility: hidden" class="loading-indicator" width="128" height="128">
+                            <g class="circle-rotating">
+                                <g class="circle-step">
+                                    <circle cx="64" cy="64" r="56" class="circle-line"></circle>
+                                </g>
+                            </g>
+                        </svg>
+                        <span class="text-center">Loading...</span>
+                    </div>
+                </div>
+                <div class="self-content">
+                    <div class="info-container flex-center text-center">
+                        <p>
+                            DoniyorProgrammer — Computer Intelligence Agency Leader. Connected to doniyor.org Organization.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="self-switcher">
+                <div class="switcher-btn text-center" id="switcher-btn-1">
+                    <div class="btn-icon"><i class="fa fa-link"></i></div>
+                    <div class="btn-text">Link</div>
+                </div>
+                <div class="switcher-btn text-center" id="switcher-btn-2">
+                    <div class="btn-icon"><i class="fa fa-book"></i></div>
+                    <div class="btn-text">Post</div>
+                </div>
+                <div class="switcher-btn text-center" id="switcher-btn-3">
+                    <div class="btn-icon"><i class="fa fa-info-circle"></i></div>
+                    <div class="btn-text">Info</div>
+                </div>
+                <div class="btn-select-indicator"></div>
+            </div>
+        </div>
+        <div class="footer-container text-center">
+            © 2007–Present DoniyorProgrammer | doniyor.org Organization
+        </div>
     </div>
-  </div>
 
-  <!-- Background layers -->
-  <div class="background-layer fixed-layer"></div>
-  <div class="background-filter fixed-layer"></div>
+    <!-- Styles & Scripts -->
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ClassicOldSong/typinyin.js@0.1.3/typinyin.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans" media="none" onload="this.media='all'">
+    <script defer src="https://fastly.jsdelivr.net/gh/ClassicOldSong/typinyin.js@master/typinyin.min.js"></script>
+    <script defer src="static/js/main.js"></script>
+    <script defer>
+        (function () {
+            var feedType = "xml";
+            var feedPath = "https://doniyor.org/blog/atom.xml";
+            var bgArr = [
+                { "url": "static/img/bg0.webp", "thumb": "" },
+                { "url": "static/img/bg1.webp", "thumb": "" },
+                { "url": "static/img/bg2.webp", "thumb": "" },
+                { "url": "static/img/bg3.webp", "thumb": "" },
+                { "url": "static/img/bg4.webp", "thumb": "" },
+                { "url": "static/img/bg5.webp", "thumb": "" },
+                { "url": "static/img/bg6.webp", "thumb": "" },
+                { "url": "static/img/bg7.webp", "thumb": "" },
+                { "url": "static/img/bg8.webp", "thumb": "" },
+                { "url": "static/img/bg9.webp", "thumb": "" },
+                { "url": "static/img/bg10.jpg", "thumb": "" }
+            ];
+            var senArr = [
+                { ch: ["The quieter you become, the more you are able to hear."], py: ["The quieter you become, the more you are able to hear."] },
+                { ch: ["Now is better than never."], py: ["Now is better than never."] },
+                { ch: ["Never is often better than right now."], py: ["Never is often better than right now."] },
+                { ch: ["Talk is cheap, show me the code."], py: ["Talk is cheap, show me the code."] },
+                { ch: ["Tech otakus save the world."], py: ["Tech otakus save the world."] },
+                { ch: ["With great power comes great responsibility."], py: ["With great power comes great responsibility."] },
+                { ch: ["Why join the navy if you can be a pirate?"], py: ["Why join the navy if you can be a pirate?"] },
+                { ch: ["In solitude, where we are least alone."], py: ["In solitude, where we are least alone."] },
+                { ch: ["Through the noise of my thoughts, I hear the universe."], py: ["Through the noise of my thoughts, I hear the universe."] },
+                { ch: ["Any sufficiently advanced technology is indistinguishable from magic."], py: ["Any sufficiently advanced technology is indistinguishable from magic."] },
+                { ch: ["Never gonna tell a lie and hurt you."], py: ["Never gonna tell a lie and hurt you."] },
+                { ch: ["Hello, world!"], py: ["Hello, world!"] }
+            ];
 
-  <div class="content-layer flex-center">
-    <div class="content-container">
-      <div class="self-wrapper">
-        <!-- Links Section -->
-        <div class="self-content links-container flex-center text-center">
-          <a href="https://doniyor.org/blog" class="link-item">
-            <div class="link-icon"><i class="fa fa-book"></i></div>
-            <div>Blog</div>
-          </a>
-          <a href="https://doniyor.org/about" class="link-item">
-            <div class="link-icon"><i class="fa fa-user"></i></div>
-            <div>About</div>
-          </a>
-          <a href="https://x.com/Doniyor_Dev" class="link-item">
-            <div class="link-icon"><i class="fa fa-twitter"></i></div>
-            <div>X / Twitter</div>
-          </a>
-          <a href="https://t.me/doniyorprogrammer" class="link-item">
-            <div class="link-icon"><i class="fa fa-telegram"></i></div>
-            <div>Telegram</div>
-          </a>
-          <a href="https://github.com/doniyor-programmer" class="link-item">
-            <div class="link-icon"><i class="fa fa-github"></i></div>
-            <div>GitHub</div>
-          </a>
-        </div>
-
-        <!-- Info Section -->
-        <div class="self-content">
-          <div class="info-container flex-center text-center">
-            <p>Computer Intelligence Agency Leader</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Switcher -->
-      <div class="self-switcher">
-        <div class="switcher-btn text-center" id="switcher-btn-1">
-          <div class="btn-icon"><i class="fa fa-link"></i></div>
-          <div class="btn-text">Link</div>
-        </div>
-        <div class="switcher-btn text-center" id="switcher-btn-2">
-          <div class="btn-icon"><i class="fa fa-book"></i></div>
-          <div class="btn-text">Post</div>
-        </div>
-        <div class="switcher-btn text-center" id="switcher-btn-3">
-          <div class="btn-icon"><i class="fa fa-info-circle"></i></div>
-          <div class="btn-text">Info</div>
-        </div>
-        <div class="btn-select-indicator"></div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer-container text-center">
-      © 2007–Present DoniyorProgrammer | doniyor.org Organization
-    </div>
-  </div>
-
-  <!-- Styles & Scripts -->
-  <link rel="stylesheet" href="static/css/main.css">
-  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans" media="none" onload="this.media='all'">
-
-  <!-- Your main JS -->
-  <script defer src="static/js/main.js"></script>
-
-  <!-- Backgrounds and quotes arrays (no Init, no XML) -->
-  <script defer>
-    var bgArr = [
-      { "url": "static/img/bg0.webp", "thumb": "" },
-      { "url": "static/img/bg1.webp", "thumb": "" },
-      { "url": "static/img/bg2.webp", "thumb": "" },
-      { "url": "static/img/bg3.webp", "thumb": "" },
-      { "url": "static/img/bg4.webp", "thumb": "" },
-      { "url": "static/img/bg5.webp", "thumb": "" },
-      { "url": "static/img/bg6.webp", "thumb": "" },
-      { "url": "static/img/bg7.webp", "thumb": "" },
-      { "url": "static/img/bg8.webp", "thumb": "" },
-      { "url": "static/img/bg9.webp", "thumb": "" },
-      { "url": "static/img/bg10.jpg", "thumb": "" }
-    ];
-
-    var senArr = [
-      { ch: ["The quieter you become, the more you are able to hear."], py: ["The quieter you become, the more you are able to hear."] },
-      { ch: ["Now is better than never."], py: ["Now is better than never."] },
-      { ch: ["Never is often better than right now."], py: ["Never is often better than right now."] },
-      { ch: ["Talk is cheap, show me the code."], py: ["Talk is cheap, show me the code."] },
-      { ch: ["Tech otakus save the world."], py: ["Tech otakus save the world."] },
-      { ch: ["With great power comes great responsibility."], py: ["With great power comes great responsibility."] },
-      { ch: ["Why join the navy if you can be a pirate?"], py: ["Why join the navy if you can be a pirate?"] },
-      { ch: ["In solitude, where we are least alone."], py: ["In solitude, where we are least alone."] },
-      { ch: ["Through the noise of my thoughts, I hear the universe."], py: ["Through the noise of my thoughts, I hear the universe."] },
-      { ch: ["Any sufficiently advanced technology is indistinguishable from magic."], py: ["Any sufficiently advanced technology is indistinguishable from magic."] },
-      { ch: ["Never gonna tell a lie and hurt you."], py: ["Never gonna tell a lie and hurt you."] },
-      { ch: ["Hello, world!"], py: ["Hello, world!"] }
-    ];
-  </script>
+            Init(feedType, feedPath, bgArr, senArr);
+        })();
+    </script>
 </body>
 </html>
