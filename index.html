@@ -1,561 +1,394 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Black Hat Ops</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIA Agent</title>
   <style>
     :root {
-      --bg: #05070a;
-      --panel: #0c1118;
-      --panel-2: #0f1520;
-      --fg: #c8f7c5;
-      --muted: #7ddf85;
-      --accent: #59f3a3;
-      --accent-2: #38ffd5;
-      --warn: #ff6f61;
-      --glow: 0 0 12px rgba(89, 243, 163, 0.55), 0 0 24px rgba(56, 255, 213, 0.25);
+      --bg: #0c111b;
+      --panel: rgba(17, 24, 39, 0.75);
+      --panel-border: rgba(255, 255, 255, 0.06);
+      --accent: #29aae3;
+      --accent-2: #16a085;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --shadow: 0 14px 40px rgba(0,0,0,0.45);
+      --terminal-bg: rgba(0,0,0,0.72);
+      --terminal-border: rgba(255,255,255,0.1);
+      --font: "Fira Code", "JetBrains Mono", Consolas, Menlo, monospace;
     }
-
     * { box-sizing: border-box; }
-    html, body {
-      margin: 0; padding: 0; background: var(--bg); color: var(--fg);
-      font-family: 'DM Mono', 'Fira Code', 'Consolas', monospace;
-      min-height: 100vh;
-    }
-
     body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(120% 120% at 10% 20%, rgba(41,170,227,0.12), transparent 40%),
+                  radial-gradient(100% 100% at 80% 10%, rgba(22,160,133,0.12), transparent 35%),
+                  radial-gradient(80% 90% at 50% 80%, rgba(255,255,255,0.04), transparent 30%),
+                  var(--bg);
+      font-family: var(--font);
+      color: var(--text);
       display: flex;
       flex-direction: column;
-      background: radial-gradient(circle at 20% 20%, rgba(56,255,213,0.08), transparent 30%),
-                  radial-gradient(circle at 80% 10%, rgba(89,243,163,0.08), transparent 25%),
-                  radial-gradient(circle at 50% 80%, rgba(255,111,97,0.05), transparent 30%),
-                  var(--bg);
-      overflow-x: hidden;
+      overflow: hidden;
     }
-
-    .scanlines {
-      pointer-events: none;
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.03) 0px,
-        rgba(255,255,255,0.03) 1px,
-        transparent 2px,
-        transparent 4px
-      );
-      mix-blend-mode: overlay;
-      opacity: 0.2;
-      z-index: 10;
+    .top-bar {
+      height: 38px;
+      background: rgba(13,18,28,0.9);
+      border-bottom: 1px solid var(--panel-border);
+      display: grid;
+      grid-template-columns: 180px 1fr 180px;
+      align-items: center;
+      padding: 0 12px;
+      gap: 8px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.35);
     }
-
-    .glow-grid {
-      position: fixed;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(56,255,213,0.06) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(56,255,213,0.06) 1px, transparent 1px);
-      background-size: 40px 40px;
-      opacity: 0.3;
-      filter: blur(0.3px);
-      z-index: 0;
+    .menu-btns, .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-
-    header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 24px 32px; position: sticky; top: 0; z-index: 5;
-      backdrop-filter: blur(10px);
-      background: rgba(12, 17, 24, 0.65);
-      border-bottom: 1px solid rgba(89, 243, 163, 0.15);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-    }
-
-    .logo {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-    }
-    .logo-dot {
-      width: 12px; height: 12px; border-radius: 50%;
-      background: var(--accent);
-      box-shadow: var(--glow);
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    .nav {
-      display: flex; gap: 14px; flex-wrap: wrap;
-    }
-    .pill {
-      border: 1px solid rgba(89, 243, 163, 0.3);
-      color: var(--fg);
-      padding: 8px 12px;
-      border-radius: 10px;
-      text-decoration: none;
+    .menu-chip {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--panel-border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
       font-size: 12px;
-      letter-spacing: 0.5px;
-      transition: all 0.2s ease;
-      background: linear-gradient(120deg, rgba(89,243,163,0.12), rgba(56,255,213,0.08));
-    }
-    .pill:hover {
-      border-color: var(--accent-2);
-      box-shadow: var(--glow);
-      transform: translateY(-1px);
-    }
-
-    .hero {
-      position: relative;
-      padding: 48px 32px 24px;
-      display: grid;
-      gap: 24px;
-      align-items: start;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      z-index: 1;
-    }
-
-    .card {
-      background: linear-gradient(135deg, rgba(12,17,24,0.9), rgba(12,17,24,0.75));
-      border: 1px solid rgba(89,243,163,0.18);
-      border-radius: 16px;
-      padding: 18px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.5);
-      position: relative;
-      overflow: hidden;
-    }
-    .card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(56,255,213,0.08), rgba(89,243,163,0.05), transparent);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-    .card:hover::before { opacity: 1; }
-
-    .headline {
-      font-size: clamp(28px, 3vw, 36px);
-      margin: 0 0 8px;
-      letter-spacing: 1px;
-    }
-    .sub {
-      color: var(--muted);
-      margin: 0 0 16px;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .typewriter {
-      color: var(--accent);
-      font-size: 14px;
-      letter-spacing: 1px;
-      min-height: 18px;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid var(--accent);
-      width: 100%;
-      animation: caret 1s step-end infinite;
-    }
-
-    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
-    .btn {
-      background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      border: none;
-      color: #041109;
-      padding: 10px 14px;
-      font-weight: 700;
-      border-radius: 10px;
-      letter-spacing: 0.5px;
-      cursor: pointer;
-      box-shadow: 0 12px 30px rgba(56,255,213,0.25);
-      transition: transform 0.15s ease, box-shadow 0.2s ease;
-    }
-    .btn:hover { transform: translateY(-1px) scale(1.01); box-shadow: 0 16px 40px rgba(56,255,213,0.35); }
-    .btn.ghost {
-      background: rgba(89,243,163,0.12);
-      color: var(--fg);
-      border: 1px solid rgba(89,243,163,0.4);
-      box-shadow: none;
-    }
-    .btn.ghost:hover { box-shadow: var(--glow); }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 12px;
-      margin: 12px 0 0;
-    }
-    .stat {
-      background: rgba(12,17,24,0.75);
-      border: 1px solid rgba(89,243,163,0.18);
-      border-radius: 12px;
-      padding: 12px;
-    }
-    .stat-label { color: var(--muted); font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; }
-    .stat-value { font-size: 18px; margin-top: 4px; color: var(--accent); }
-
-    .terminal {
-      background: #030507;
-      border: 1px solid rgba(89,243,163,0.35);
-      border-radius: 12px;
-      padding: 12px;
-      height: 280px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: inset 0 0 0 1px rgba(56,255,213,0.08);
-    }
-    .terminal-header {
-      display: flex; gap: 6px; align-items: center; margin-bottom: 10px;
-    }
-    .dot { width: 10px; height: 10px; border-radius: 50%; background: #6cfe9c; box-shadow: 0 0 8px rgba(89,243,163,0.6); }
-    .terminal-body {
-      font-size: 13px; line-height: 1.5; color: #b7fdd0;
-      height: calc(100% - 18px);
-      overflow-y: auto;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(89,243,163,0.5) rgba(12,17,24,0.6);
-    }
-    .terminal-body::-webkit-scrollbar { width: 6px; }
-    .terminal-body::-webkit-scrollbar-thumb { background: rgba(89,243,163,0.5); border-radius: 10px; }
-
-    .line {
-      display: block;
-      white-space: pre-wrap;
-    }
-
-    .grid-panels {
-      display: grid;
-      gap: 14px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    }
-
-    .mini-title {
-      font-size: 12px; letter-spacing: 1px; color: var(--muted); margin-bottom: 8px;
+      letter-spacing: 0.03em;
       text-transform: uppercase;
     }
-
-    .list {
-      display: grid; gap: 8px;
-    }
-    .list-item {
-      padding: 10px;
-      border: 1px solid rgba(89,243,163,0.15);
-      border-radius: 10px;
-      background: rgba(15,21,32,0.6);
-      display: flex; justify-content: space-between; align-items: center;
-      transition: border 0.2s ease, transform 0.15s ease;
-    }
-    .list-item:hover { border-color: rgba(89,243,163,0.5); transform: translateY(-1px); }
-
-    .badge {
-      padding: 4px 8px;
-      border-radius: 8px;
-      background: rgba(56,255,213,0.12);
-      border: 1px solid rgba(56,255,213,0.35);
-      color: var(--accent);
-      font-size: 11px;
-      letter-spacing: 0.5px;
-    }
-
-    .toggle-row {
-      display: flex; gap: 10px; flex-wrap: wrap;
-    }
-    .toggle {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 10px;
-      border: 1px solid rgba(89,243,163,0.2);
-      border-radius: 10px;
-      cursor: pointer;
-      background: rgba(12,17,24,0.7);
-      transition: all 0.2s ease;
-    }
-    .toggle input { display: none; }
-    .toggle .dot {
-      width: 14px; height: 14px; border-radius: 50%;
-      background: rgba(255,255,255,0.1); box-shadow: none;
-      border: 1px solid rgba(89,243,163,0.4);
-    }
-    .toggle input:checked + .dot {
-      background: var(--accent);
-      box-shadow: var(--glow);
-      border-color: transparent;
-    }
-    .toggle span { font-size: 12px; letter-spacing: 0.3px; color: var(--muted); }
-
-    .glitch {
-      position: relative; display: inline-block; color: var(--accent);
-      letter-spacing: 2px; font-weight: 700;
-    }
-    .glitch::before, .glitch::after {
-      content: attr(data-text);
-      position: absolute; left: 0; top: 0; width: 100%;
-      color: var(--accent);
-      opacity: 0.6;
-      clip: rect(0, 900px, 0, 0);
-    }
-    .glitch::before { animation: glitchTop 2s infinite linear alternate-reverse; color: #38ffd5; }
-    .glitch::after  { animation: glitchBot 2.5s infinite linear alternate-reverse; color: #ff6f61; }
-
-    .timeline {
-      display: grid; gap: 8px;
-    }
-    .timeline-item {
-      border-left: 2px solid rgba(89,243,163,0.4);
-      padding-left: 10px; color: var(--muted);
-      font-size: 12px; position: relative;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute; left: -6px; top: 6px;
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--accent);
-      box-shadow: var(--glow);
-    }
-    .flex { display: flex; gap: 12px; flex-wrap: wrap; }
-
-    footer {
-      padding: 20px 32px 32px;
-      color: var(--muted);
+    .status {
+      justify-content: flex-end;
       font-size: 12px;
-      letter-spacing: 0.5px;
+      color: var(--muted);
+      gap: 12px;
     }
-
-    @keyframes caret { 50% { border-color: transparent; } }
-    @keyframes pulse { 0%, 100% { transform: scale(1); box-shadow: var(--glow);} 50% { transform: scale(1.05);} }
-    @keyframes glitchTop {
-      0% { clip: rect(0, 9999px, 0, 0); transform: translate(0,0);}
-      20% { clip: rect(2px, 9999px, 12px, 0); transform: translate(-2px,-2px);}
-      40% { clip: rect(8px, 9999px, 18px, 0); transform: translate(2px,2px);}
-      60% { clip: rect(4px, 9999px, 10px, 0); transform: translate(-1px,2px);}
-      80% { clip: rect(14px, 9999px, 22px, 0); transform: translate(1px,-1px);}
-      100% { clip: rect(0, 9999px, 0, 0); transform: translate(0,0);}
+    .status-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(41,170,227,0.15);
     }
-    @keyframes glitchBot {
-      0% { clip: rect(0, 9999px, 0, 0); transform: translate(0,0);}
-      20% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px,1px);}
-      40% { clip: rect(6px, 9999px, 16px, 0); transform: translate(-2px,-1px);}
-      60% { clip: rect(12px, 9999px, 24px, 0); transform: translate(1px,-2px);}
-      80% { clip: rect(4px, 9999px, 14px, 0); transform: translate(-1px,2px);}
-      100% { clip: rect(0, 9999px, 0, 0); transform: translate(0,0);}
+    .desktop {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
     }
-
-    /* Responsive tweaks */
-    @media (max-width: 640px) {
-      header { flex-direction: column; align-items: flex-start; gap: 10px; }
-      .hero { padding: 32px 18px 18px; }
-      .btn-row { width: 100%; }
-      .btn { flex: 1; text-align: center; min-width: 120px; }
+    .icons {
+      position: absolute;
+      top: 58px;
+      left: 22px;
+      display: grid;
+      gap: 18px;
+    }
+    .icon {
+      width: 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+      text-decoration: none;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,0.35));
+      transition: transform 0.15s ease, opacity 0.2s ease;
+    }
+    .icon:hover { transform: translateY(-2px); }
+    .icon img {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(145deg, rgba(41,170,227,0.3), rgba(22,160,133,0.28));
+      border: 1px solid var(--panel-border);
+      padding: 8px;
+    }
+    .icon span { font-size: 12px; text-align: center; color: var(--muted); }
+    .terminal {
+      position: absolute;
+      inset: 72px 24px 24px 120px;
+      min-height: 360px;
+      background: var(--terminal-bg);
+      border: 1px solid var(--terminal-border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+    }
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--terminal-border);
+    }
+    .dots {
+      display: flex;
+      gap: 8px;
+    }
+    .dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.15);
+    }
+    .dot.red { background: #ff5f56; border-color: #e0443e; }
+    .dot.yellow { background: #ffbd2e; border-color: #dea123; }
+    .dot.green { background: #27c93f; border-color: #1fa334; }
+    .terminal-title {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .terminal-body {
+      padding: 14px 16px 16px;
+      overflow: auto;
+      font-size: 14px;
+      line-height: 1.6;
+      font-family: var(--font);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.12) transparent;
+    }
+    .terminal-body::-webkit-scrollbar { width: 8px; }
+    .terminal-body::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.12);
+      border-radius: 999px;
+    }
+    .line { white-space: pre-wrap; }
+    .prompt { color: var(--accent); }
+    .path { color: var(--accent-2); }
+    .cmd { color: #eaeaea; }
+    .output { color: #d1d5db; }
+    .cursor {
+      display: inline-block;
+      width: 9px;
+      background: #e5e7eb;
+      margin-left: 2px;
+      animation: blink 1s steps(1) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    @media (max-width: 900px) {
+      .top-bar { grid-template-columns: 1fr; height: auto; padding: 8px 10px; row-gap: 6px; }
+      .status { justify-content: flex-start; }
+      .icons { position: static; padding: 14px; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); }
+      .terminal { position: static; margin: 12px; inset: auto; min-height: 60vh; }
+    }
+    @media (max-width: 540px) {
+      .terminal { margin: 8px; }
+      .terminal-body { font-size: 13px; }
+      .icon span { font-size: 11px; }
     }
   </style>
 </head>
 <body>
-  <div class="glow-grid"></div>
-  <div class="scanlines"></div>
-
-  <header>
-    <div class="logo"><span class="logo-dot"></span><span class="glitch" data-text="BLACK HAT OPS">BLACK HAT OPS</span></div>
-    <nav class="nav">
-      <a class="pill" href="#terminal">Terminal</a>
-      <a class="pill" href="#missions">Missions</a>
-      <a class="pill" href="#systems">Systems</a>
-      <a class="pill" href="#timeline">Timeline</a>
-    </nav>
-  </header>
-
-  <main class="hero">
-    <section class="card">
-      <h1 class="headline">Stealth Console</h1>
-      <p class="sub">Simulated black hat operations dashboard. All UI, animation, and theming in one HTML file—no external assets.</p>
-      <div class="typewriter" id="typewriter"></div>
-      <div class="btn-row">
-        <button class="btn" id="injectBtn">Deploy Payload</button>
-        <button class="btn ghost" id="scrambleBtn">Scramble Feed</button>
-      </div>
-      <div class="stats">
-        <div class="stat">
-          <div class="stat-label">NODES ONLINE</div>
-          <div class="stat-value" id="nodesOnline">128</div>
-        </div>
-        <div class="stat">
-          <div class="stat-label">LATENCY</div>
-          <div class="stat-value" id="latency">42 ms</div>
-        </div>
-        <div class="stat">
-          <div class="stat-label">THROUGHPUT</div>
-          <div class="stat-value" id="throughput">8.2 Gbps</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="card" id="terminal">
-      <div class="terminal">
-        <div class="terminal-header">
-          <div class="dot"></div><div class="dot" style="background:#ff6f61; box-shadow:0 0 8px rgba(255,111,97,0.7);"></div><div class="dot" style="background:#ffe58f; box-shadow:0 0 8px rgba(255,229,143,0.7);"></div>
-        </div>
-        <div class="terminal-body" id="terminalBody"></div>
-      </div>
-    </section>
-  </main>
-
-  <section class="hero" id="missions">
-    <div class="card">
-      <div class="mini-title">Mission Queue</div>
-      <div class="list" id="missionList">
-        <div class="list-item"><span>Recon subnet 10.24.6.0/24</span><span class="badge">RUNNING</span></div>
-        <div class="list-item"><span>Exfil package: /opt/targets/alpha</span><span class="badge">QUEUED</span></div>
-        <div class="list-item"><span>Pivot via bastion-03</span><span class="badge">IDLE</span></div>
-      </div>
+  <div class="top-bar">
+    <div class="menu-btns">
+      <div class="menu-chip">Kali</div>
+      <div class="menu-chip">Applications</div>
+      <div class="menu-chip">Places</div>
+      <div class="menu-chip">Terminal</div>
     </div>
-    <div class="card" id="systems">
-      <div class="mini-title">Subsystems</div>
-      <div class="toggle-row" id="toggleRow">
-        <label class="toggle"><input type="checkbox" checked /><span class="dot"></span><span>Packet Forge</span></label>
-        <label class="toggle"><input type="checkbox" checked /><span class="dot"></span><span>Signal Scrambler</span></label>
-        <label class="toggle"><input type="checkbox" /><span class="dot"></span><span>Heuristic Cloak</span></label>
-        <label class="toggle"><input type="checkbox" checked /><span class="dot"></span><span>Zero Trace</span></label>
-      </div>
-      <div class="mini-title" style="margin-top:12px;">Live Signals</div>
-      <div class="timeline" id="timeline">
-        <div class="timeline-item">[00:12:04] Beacon detected on port 8081</div>
-        <div class="timeline-item">[00:11:51] Lateral token minted</div>
-        <div class="timeline-item">[00:10:33] Credentials harvested (3)</div>
-      </div>
+    <div></div>
+    <div class="status">
+      <span class="status-dot"></span>
+      <span>tun0: 10.8.0.12</span>
+      <span>Wi‑Fi: connected</span>
+      <span>UTC 24:00</span>
     </div>
-    <div class="card">
-      <div class="mini-title">Heatmap (Simulated)</div>
-      <canvas id="heatmap" width="400" height="220" style="width:100%; border:1px solid rgba(89,243,163,0.18); border-radius: 12px; background: radial-gradient(circle at 30% 40%, rgba(56,255,213,0.12), transparent 40%), radial-gradient(circle at 70% 60%, rgba(255,111,97,0.12), transparent 45%), #0c1118;"></canvas>
-    </div>
-  </section>
+  </div>
 
-  <footer>
-    <div class="flex">
-      <span class="badge">ANON MODE</span>
-      <span class="badge">QUANT CHANNEL</span>
-      <span class="badge">NO LOGS</span>
+  <div class="desktop">
+    <div class="icons">
+      <a class="icon" href="#">
+        <img aria-hidden="true">
+        <span>Files</span>
+      </a>
+      <a class="icon" href="#">
+        <img aria-hidden="true">
+        <span>Burp</span>
+      </a>
+      <a class="icon" href="#">
+        <img aria-hidden="true">
+        <span>Recon</span>
+      </a>
+      <a class="icon" href="#">
+        <img aria-hidden="true">
+        <span>Reports</span>
+      </a>
     </div>
-    <div style="margin-top:10px;">Black Hat Ops — simulated interface. All visuals & interactions contained in this single file.</div>
-  </footer>
+
+    <div class="terminal">
+      <div class="terminal-header">
+        <div class="dots">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+        </div>
+        <div class="terminal-title">kali@blackarch: ~/ops</div>
+      </div>
+      <div class="terminal-body" id="terminal"></div>
+    </div>
+  </div>
 
   <script>
-    // Typewriter lines
+    const terminal = document.getElementById('terminal');
     const lines = [
-      "Initializing darknet bridge... done.",
-      "Spawning ephemeral relays (x8)... done.",
-      "Loading obfuscated payloads... ready.",
-      "Arming heuristic cloak... standby.",
-      "Awaiting operator directives..."
+      { type: 'cmd', text: 'neofetch' },
+      { type: 'output', text:
+`            .---.        kali@blackarch
+           /     \\       OS: Kali GNU/Linux Rolling x86_64
+           \\.@-@./       Kernel: 6.6.0-amd64
+           /` + " \\_/ " + `\\       Uptime: 4h 12m
+          //  _  \\\\      Packages: 2140 (dpkg)
+         | \\     )|      Shell: zsh 5.9
+        /` + "'`" + `\\_   /\\      WM: i3
+        \\__/  )/       Terminal: tmux
+          ` + "(__/" + `        CPU: Ryzen 7 4800H
+                      GPU: RTX 3060 Mobile
+                      Mem: 6043MiB / 15917MiB`
+      },
+      { type: 'cmd', text: 'ls -la' },
+      { type: 'output', text:
+`total 48
+drwxr-xr-x  7 kali kali  4096 Dec 29 00:04 .
+drwxr-xr-x 17 kali kali  4096 Dec 28 21:10 ..
+drwxr-xr-x  3 kali kali  4096 Dec 29 00:02 recon
+drwxr-xr-x  5 kali kali  4096 Dec 29 00:03 reports
+drwxr-xr-x  2 kali kali  4096 Dec 29 00:01 exploits
+-rw-r--r--  1 kali kali   921 Dec 28 23:58 targets.txt
+-rw-r--r--  1 kali kali  2048 Dec 29 00:00 notes.md`
+      },
+      { type: 'cmd', text: 'cat targets.txt' },
+      { type: 'output', text:
+`10.10.11.101
+10.10.11.158
+10.129.20.44`
+      },
+      { type: 'cmd', text: 'nmap -sC -sV -Pn 10.10.11.101' },
+      { type: 'output', text:
+`Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-12-29 00:05 UTC
+Nmap scan report for 10.10.11.101
+Host is up (0.21s latency).
+PORT    STATE SERVICE  VERSION
+22/tcp  open  ssh      OpenSSH 9.2p1 Debian 2 (protocol 2.0)
+80/tcp  open  http     nginx 1.22.1
+443/tcp open  ssl/http nginx 1.22.1
+Service detection performed. Nmap done: 1 IP address (1 host up) scanned in 9.31 seconds`
+      },
+      { type: 'cmd', text: 'whatweb https://10.10.11.101' },
+      { type: 'output', text:
+`https://10.10.11.101 [200 OK] Country[RESERVED][ZZ], HTTPServer[nginx/1.22.1], IP[10.10.11.101], Title[Secure Portal], X-Powered-By[PHP/8.1.12]`
+      },
+      { type: 'cmd', text: 'gobuster dir -u https://10.10.11.101 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -k' },
+      { type: 'output', text:
+`/.git/HEAD           (Status: 200) [Size: 23]
+/backup              (Status: 301) [Size: 162]
+/login               (Status: 200) [Size: 1024]`
+      },
+      { type: 'cmd', text: 'python3 exploit.py --rhost 10.10.11.101 --rport 443 --ssl' },
+      { type: 'output', text:
+`[+] Triggering deserialization payload...
+[+] Got shell!`
+      },
+      { type: 'cmd', text: 'whoami' },
+      { type: 'output', text: 'www-data' },
+      { type: 'cmd', text: 'id' },
+      { type: 'output', text: 'uid=33(www-data) gid=33(www-data) groups=33(www-data)' },
+      { type: 'cmd', text: 'hostname && uname -a' },
+      { type: 'output', text: 'secure-portal\nLinux secure-portal 6.6.0-amd64 #1 SMP x86_64 GNU/Linux' },
+      { type: 'cmd', text: 'cat /etc/os-release' },
+      { type: 'output', text:
+`PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
+NAME="Debian GNU/Linux"
+VERSION_ID="12"
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"`
+      },
+      { type: 'cmd', text: 'ifconfig tun0 && ip a s eth0' },
+      { type: 'output', text:
+`tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500
+        inet 10.8.0.12  netmask 255.255.255.0  destination 10.8.0.12
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.10.11.101  netmask 255.255.255.0  broadcast 10.10.11.255`
+      },
+      { type: 'cmd', text: 'python3 -c "import pty,os; pty.spawn(\'/bin/bash\')"' },
+      { type: 'output', text: '' },
+      { type: 'cmd', text: 'export TERM=xterm-256color' },
+      { type: 'output', text: '' },
+      { type: 'cmd', text: 'ls /backup' },
+      { type: 'output', text:
+`db.sqlite3
+daily.tar.gz
+ssh_config.bak`
+      },
+      { type: 'cmd', text: 'exit' },
+      { type: 'output', text: '' },
     ];
-    const tw = document.getElementById('typewriter');
-    let li = 0, ci = 0, typing = true;
 
-    function typeLoop() {
-      if (!typing) return;
-      if (ci <= lines[li].length) {
-        tw.textContent = lines[li].slice(0, ci++);
-      } else {
-        setTimeout(() => { ci = 0; li = (li + 1) % lines.length; }, 800);
-      }
-      setTimeout(typeLoop, 60 + Math.random() * 40);
-    }
-    typeLoop();
+    const promptStr = '<span class="prompt">kali@blackarch</span>:<span class="path">~/ops</span>$ ';
+    let idx = 0;
 
-    // Terminal stream
-    const terminal = document.getElementById('terminalBody');
-    const sampleLogs = [
-      "[trace] ↪ linking relay node r-7a :: latency 12ms",
-      "[auth] ⇢ token minted for session: 0x" + Math.random().toString(16).slice(2,8),
-      "[beacon] ↯ signal detected @ 185.33.*.* :: probing...",
-      "[pivot] ⇢ ssh -D 9050 bastion-03 :: established",
-      "[exfil] ⇢ packaging payload alpha.tar.gz :: 42.8 MB",
-      "[cloak] ⇢ traffic shaped to match netflix CDN fingerprint",
-      "[hexdump] 4f 62 66 75 73 63 61 74 65 64 20 64 61 74 61",
-      "[entropy] ⇢ jitter seeds rotated",
-      "[alert] ⇢ IDS evasion successful (heuristic bypass)"
-    ];
-
-    function pushLog(text) {
-      const el = document.createElement('div');
-      el.className = 'line';
-      el.textContent = text;
-      terminal.appendChild(el);
+    function appendLine(content) {
+      const line = document.createElement('div');
+      line.className = 'line';
+      line.innerHTML = content;
+      terminal.appendChild(line);
       terminal.scrollTop = terminal.scrollHeight;
-      // Trim
-      if (terminal.children.length > 200) terminal.removeChild(terminal.firstChild);
     }
 
-    // Initial logs
-    sampleLogs.slice(0,4).forEach(pushLog);
+    function typeCommand(text, cb) {
+      const line = document.createElement('div');
+      line.className = 'line';
+      const span = document.createElement('span');
+      span.innerHTML = promptStr;
+      line.appendChild(span);
 
-    // Random log interval
-    setInterval(() => {
-      const msg = sampleLogs[Math.floor(Math.random()*sampleLogs.length)];
-      pushLog(msg);
-    }, 1200);
+      const cmdSpan = document.createElement('span');
+      cmdSpan.className = 'cmd';
+      line.appendChild(cmdSpan);
 
-    // Buttons
-    document.getElementById('injectBtn').addEventListener('click', () => {
-      pushLog("[inject] ⇢ deploying payload :: " + (Math.random()*10).toFixed(2) + " MB");
-      pulseStat('throughput', (7 + Math.random()*5).toFixed(1) + " Gbps");
-    });
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor';
+      line.appendChild(cursor);
 
-    document.getElementById('scrambleBtn').addEventListener('click', () => {
-      pushLog("[scramble] ⇢ noise injected into channels");
-      const bodies = document.querySelectorAll('.card');
-      bodies.forEach(c => {
-        c.style.boxShadow = "0 0 0 1px rgba(56,255,213,0.15), 0 0 25px rgba(56,255,213,0.18)";
-        setTimeout(() => c.style.boxShadow = "", 300);
-      });
-    });
+      terminal.appendChild(line);
+      terminal.scrollTop = terminal.scrollHeight;
 
-    function pulseStat(id, value) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.textContent = value;
-      el.style.transition = 'color 0.2s ease, transform 0.2s ease';
-      el.style.color = 'var(--accent-2)';
-      el.style.transform = 'scale(1.05)';
-      setTimeout(() => {
-        el.style.color = 'var(--accent)';
-        el.style.transform = 'scale(1)';
-      }, 220);
-    }
-
-    // Toggles add timeline events
-    document.querySelectorAll('.toggle input').forEach(input => {
-      input.addEventListener('change', (e) => {
-        const label = e.target.parentElement.querySelector('span:last-child').textContent;
-        pushLog("[toggle] ⇢ " + label + " :: " + (e.target.checked ? "enabled" : "disabled"));
-        addTimeline("[00:" + String(10 + Math.floor(Math.random()*50)).padStart(2,'0') + "] " + label + " " + (e.target.checked ? "activated" : "suspended"));
-      });
-    });
-
-    function addTimeline(text) {
-      const tl = document.getElementById('timeline');
-      const item = document.createElement('div');
-      item.className = 'timeline-item';
-      item.textContent = text;
-      tl.prepend(item);
-      if (tl.children.length > 6) tl.removeChild(tl.lastChild);
-    }
-
-    // Heatmap noise dots
-    const heat = document.getElementById('heatmap');
-    const ctx = heat.getContext('2d');
-    function drawHeat() {
-      ctx.clearRect(0,0,heat.width, heat.height);
-      for (let i=0;i<80;i++){
-        const x = Math.random()*heat.width;
-        const y = Math.random()*heat.height;
-        const r = Math.random()*18+6;
-        const g = ctx.createRadialGradient(x,y,0,x,y,r);
-        const hot = Math.random()>0.7;
-        g.addColorStop(0, hot ? "rgba(255,111,97,0.35)" : "rgba(56,255,213,0.28)");
-        g.addColorStop(1, "rgba(0,0,0,0)");
-        ctx.fillStyle = g;
-        ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill();
+      let i = 0;
+      const speed = 16 + Math.random() * 30;
+      function tick() {
+        if (i <= text.length) {
+          cmdSpan.textContent = text.slice(0, i);
+          terminal.scrollTop = terminal.scrollHeight;
+          i++;
+          setTimeout(tick, speed);
+        } else {
+          cursor.remove();
+          cb && cb();
+        }
       }
-      requestAnimationFrame(drawHeat);
+      tick();
     }
-    drawHeat();
+
+    function next() {
+      if (idx >= lines.length) return;
+      const entry = lines[idx++];
+      if (entry.type === 'cmd') {
+        typeCommand(entry.text, () => {
+          setTimeout(next, 320);
+        });
+      } else {
+        appendLine(entry.text ? `<span class="output">${entry.text}</span>` : '');
+        setTimeout(next, 360);
+      }
+    }
+
+    window.addEventListener('load', () => {
+      setTimeout(next, 500);
+    });
   </script>
 </body>
 </html>
