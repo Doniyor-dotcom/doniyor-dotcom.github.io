@@ -1,41 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Cheese!</title>
-  <style>
-    /* Reset margins and make video fill the screen */
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      background: black;
-      overflow: hidden;
-    }
-    #camera {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* ensures video fills without distortion */
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blackroom // Terminal</title>
+<style>
+:root {
+  --bg: #050607;
+  --panel: rgba(8,12,14,0.88);
+  --fg: #d7ffe1;
+  --dim: #8fd0a0;
+  --accent: #00e7ff;
+  --alert: #ff3b6a;
+  --warn: #ffb347;
+  --success: #62ff9f;
+  --font: "DM Mono","Fira Code","JetBrains Mono",Consolas,monospace;
+  --shadow: 0 0 22px rgba(0,255,160,0.22);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:#050607;color:var(--fg);font-family:var(--font);min-height:100vh;}
+body{display:flex;flex-direction:column;overflow:hidden;}
+a{color:var(--accent);}
+.scanlines::before{
+  content:"";position:fixed;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(to bottom,rgba(0,255,180,0.08)0,rgba(0,255,180,0.08)2px,rgba(0,0,0,0.12)4px,rgba(0,0,0,0.14)6px);
+  opacity:.4;mix-blend-mode:screen;animation:flicker 2.6s infinite;
+}
+@keyframes flicker{0%{opacity:.33;}20%{opacity:.5;}40%{opacity:.26;}60%{opacity:.6;}80%{opacity:.3;}100%{opacity:.4;}}
+@keyframes blink{0%,50%{opacity:1;}50.1%,100%{opacity:0;}}
+@keyframes pan{0%{background-position:0 0;}100%{background-position:600px 600px;}}
+.bg-grid{position:fixed;inset:0;pointer-events:none;opacity:.28;
+  background:
+   repeating-linear-gradient(90deg,rgba(0,255,220,0.06)0,rgba(0,255,220,0.06)1px,transparent 3px,transparent 6px),
+   repeating-linear-gradient(0deg,rgba(0,255,160,0.06)0,rgba(0,255,160,0.06)1px,transparent 3px,transparent 6px);
+  animation:pan 32s linear infinite;
+}
+.header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px;gap:10px;
+  background:rgba(0,0,0,0.65);border-bottom:1px solid #0fa;
+  box-shadow:0 0 14px rgba(0,255,140,0.2);z-index:2;
+}
+.logo{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#a8ffd0;}
+.status{font-size:12px;color:var(--dim);display:flex;gap:8px;flex-wrap:wrap;}
+.pill{border:1px solid #0fa;padding:4px 8px;border-radius:6px;background:rgba(0,40,25,0.45);}
+.btn{background:rgba(0,255,160,0.16);border:1px solid #0fa;color:var(--fg);
+  padding:8px 10px;border-radius:6px;font-family:var(--font);text-transform:uppercase;letter-spacing:.7px;cursor:pointer;
+  box-shadow:0 0 12px rgba(0,255,120,0.18), inset 0 0 10px rgba(0,255,140,0.08);
+}
+.btn:active{transform:translateY(1px);}
+.main{
+  display:grid;grid-template-columns:1fr;grid-template-rows:auto 1fr auto;
+  gap:10px;padding:10px;height:calc(100vh - 58px);overflow:hidden;
+}
+@media(min-width:900px){.main{grid-template-columns:1.15fr .85fr;grid-template-rows:1fr;}}
+.panel{
+  background:var(--panel);border:1px solid rgba(0,255,140,0.28);border-radius:8px;
+  box-shadow:var(--shadow), inset 0 0 14px rgba(0,255,120,0.06);
+  overflow:hidden;display:flex;flex-direction:column;min-height:0;
+}
+.panel h3{margin:0;padding:10px 12px;font-size:13px;letter-spacing:1px;text-transform:uppercase;
+  background:linear-gradient(90deg,rgba(0,255,120,0.14),rgba(0,0,0,0));border-bottom:1px solid rgba(0,255,160,0.2);color:#c5ffda;
+}
+.terminal{flex:1;overflow:hidden;display:flex;flex-direction:column;}
+#log{flex:1;overflow-y:auto;padding:10px;white-space:pre-wrap;word-break:break-word;font-size:13px;line-height:1.45;}
+.prompt{padding:8px 10px;border-top:1px solid rgba(0,255,120,0.18);}
+.prompt::after{content:"█";animation:blink 1s step-start infinite;}
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;padding:10px;overflow:auto;}
+.card{
+  border:1px solid rgba(0,255,160,0.28);background:rgba(0,20,15,0.58);
+  border-radius:6px;padding:10px;box-shadow:inset 0 0 10px rgba(0,255,140,0.07);
+}
+.card-title{color:#9fffc4;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.bad{color:var(--alert);font-weight:bold;} .warn{color:var(--warn);} .good{color:var(--success);}
+.progress{height:8px;background:rgba(0,255,160,0.14);border:1px solid #0fa;border-radius:4px;overflow:hidden;margin-top:6px;}
+.progress span{display:block;height:100%;width:0%;background:linear-gradient(90deg,#00ff9c,#b8ffd8);transition:width .3s ease;}
+.tools{padding:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;overflow:auto;}
+.tool{border:1px solid rgba(0,255,200,0.28);background:rgba(0,18,22,0.62);border-radius:6px;padding:10px;font-size:12px;box-shadow:inset 0 0 10px rgba(0,255,220,0.07);}
+.label{color:#9fe7ff;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.cmd{display:flex;flex-direction:column;gap:6px;}
+input,select,textarea{
+  background:rgba(0,0,0,0.35);color:var(--fg);border:1px solid rgba(0,255,160,0.28);
+  padding:8px;border-radius:5px;font-family:var(--font);font-size:12px;
+}
+textarea{min-height:80px;resize:vertical;}
+.table-like{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;font-size:12px;}
+.table-like .head{color:#9ff;text-transform:uppercase;letter-spacing:1px;}
+#pcapRows{display:contents;}
+.toast{
+  position:fixed;right:12px;bottom:12px;padding:12px 14px;
+  border:1px solid var(--warn);background:rgba(50,30,0,0.75);color:#ffe7c2;font-size:12px;
+  box-shadow:0 0 16px rgba(255,180,60,0.4);letter-spacing:1px;text-transform:uppercase;z-index:11;animation:blink 1.6s infinite;
+}
+.overlay{
+  position:fixed;inset:18% 8%;border:2px solid var(--alert);background:rgba(0,0,0,0.92);
+  color:#ffdede;padding:18px;border-radius:10px;box-shadow:0 0 26px rgba(255,0,60,0.55);
+  text-align:center;z-index:12;display:none;
+}
+.overlay h2{margin:0 0 10px;letter-spacing:2px;text-transform:uppercase;}
+.timeline{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;font-size:12px;}
+.event{border-left:2px solid var(--accent);padding-left:8px;background:rgba(0,20,25,0.55);border-radius:6px;padding:8px;box-shadow:inset 0 0 10px rgba(0,255,240,0.06);}
+.tag{border:1px solid rgba(0,255,160,0.4);padding:2px 6px;border-radius:4px;font-size:11px;color:#b8ffd5;background:rgba(0,255,160,0.08);}
+@media(max-width:720px){
+  .header{flex-direction:column;align-items:flex-start;}
+  body{overflow:auto;}
+  .main{height:auto;}
+}
+</style>
 </head>
-<body>
-  <video id="camera" autoplay playsinline></video>
+<body class="scanlines">
+<div class="bg-grid"></div>
+<div class="header">
+  <div class="logo">blackroom // terminal</div>
+  <div class="status">
+    <span class="pill">link: latent</span>
+    <span class="pill">trace: live</span>
+    <span class="pill">kernel: 6.9-kali</span>
+    <span class="pill">mode: observe</span>
+  </div>
+  <div style="display:flex;gap:6px;">
+    <button class="btn" id="btnQuiet">quiet</button>
+    <button class="btn" id="btnLock">veil</button>
+  </div>
+</div>
 
-  <script>
-    async function startCamera() {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        const video = document.getElementById('camera');
-        video.srcObject = stream;
-      } catch (err) {
-        console.error("Error accessing camera:", err);
-        alert("Unable to access camera. Please allow permissions.");
+<div class="main">
+  <div class="panel">
+    <h3>terminal :: live narrative</h3>
+    <div class="terminal">
+      <div id="log"></div>
+      <div class="prompt">analyst@blackroom:~# <span id="cursor-target"></span></div>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>intel :: subtle pressure</h3>
+    <div class="meta-grid">
+      <div class="card">
+        <div class="card-title">triangulation</div>
+        <div>lat/lon: <span id="latlon">??</span></div>
+        <div>ISP: <span id="isp">resolving...</span></div>
+        <div>confidence: <span class="warn" id="conf">94%</span></div>
+        <div>ip: <span id="ip">0.0.0.0</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">identity thread</div>
+        <div>name: <span class="bad" id="name">assembling...</span></div>
+        <div>email: <span class="bad" id="email">pending</span></div>
+        <div>breaches: <span class="bad" id="breach">22</span></div>
+        <div>socials: <span id="social">intersecting...</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">surface taps</div>
+        <div>status: <span class="warn">ambient</span></div>
+        <div>channels: <span class="good">passive</span></div>
+        <div>ledger: <span class="warn">writing</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">keystroke stream</div>
+        <div>records: <span class="bad" id="keys">81,144</span></div>
+        <div>last key: <span id="lastkey">enter</span></div>
+        <div class="progress"><span id="prog"></span></div>
+      </div>
+    </div>
+    <div class="tools">
+      <div class="tool">
+        <div class="label">scan (nmap)</div>
+        <div class="cmd">
+          <input id="nmapTarget" placeholder="target host / range" />
+          <button class="btn" id="runNmap">launch</button>
+          <div class="tag">-sS -p- -T4</div>
+          <div id="nmapOut" class="warn"></div>
+        </div>
+      </div>
+      <div class="tool">
+        <div class="label">cred pressure (hydra)</div>
+        <div class="cmd">
+          <input id="hydraService" placeholder="ssh / ftp / http" />
+          <input id="hydraHost" placeholder="target host" />
+          <button class="btn" id="runHydra">start</button>
+          <div id="hydraOut" class="warn"></div>
+        </div>
+      </div>
+      <div class="tool">
+        <div class="label">payload forge</div>
+        <div class="cmd">
+          <select id="payloadType">
+            <option>meterpreter/reverse_https</option>
+            <option>meterpreter/reverse_tcp</option>
+            <option>shell/reverse_tcp</option>
+            <option>beacon/http</option>
+          </select>
+          <input id="lhost" placeholder="LHOST" />
+          <input id="lport" placeholder="LPORT" />
+          <button class="btn" id="runPayload">generate</button>
+          <div id="payloadOut" class="good"></div>
+        </div>
+      </div>
+      <div class="tool">
+        <div class="label">packet watch</div>
+        <div class="table-like">
+          <div class="head">src</div><div class="head">dst</div><div class="head">proto</div><div class="head">len</div>
+          <div id="pcapRows"></div>
+        </div>
+      </div>
+      <div class="tool">
+        <div class="label">timeline</div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+      <div class="tool">
+        <div class="label">notes</div>
+        <textarea placeholder="Observations, leverage points, timing cues..."></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">Channel: still listening. Silence is a tell.</div>
+
+<div class="overlay" id="overlay">
+  <h2>Veil engaged</h2>
+  <p>We already mapped the room. How you move now is data.</p>
+  <button class="btn" id="closeOverlay">resume</button>
+</div>
+
+<script>
+const logEl = document.getElementById('log');
+const cursorTarget = document.getElementById('cursor-target');
+const latlon = document.getElementById('latlon');
+const isp = document.getElementById('isp');
+const conf = document.getElementById('conf');
+const nameEl = document.getElementById('name');
+const email = document.getElementById('email');
+const breach = document.getElementById('breach');
+const keys = document.getElementById('keys');
+const lastkey = document.getElementById('lastkey');
+const prog = document.getElementById('prog');
+const overlay = document.getElementById('overlay');
+const closeOverlay = document.getElementById('closeOverlay');
+const toast = document.getElementById('toast');
+const ipEl = document.getElementById('ip');
+const socialEl = document.getElementById('social');
+
+const nmapTarget = document.getElementById('nmapTarget');
+const hydraService = document.getElementById('hydraService');
+const hydraHost = document.getElementById('hydraHost');
+const payloadType = document.getElementById('payloadType');
+const lhost = document.getElementById('lhost');
+const lport = document.getElementById('lport');
+const nmapOut = document.getElementById('nmapOut');
+const hydraOut = document.getElementById('hydraOut');
+const payloadOut = document.getElementById('payloadOut');
+const pcapRows = document.getElementById('pcapRows');
+const timeline = document.getElementById('timeline');
+
+const btnQuiet = document.getElementById('btnQuiet');
+const btnLock = document.getElementById('btnLock');
+
+const lines = [
+  "[boot] calm silence: signal traces you back faster than noise.",
+  "[net] tunnels up :: latency acceptable :: mirrors dormant",
+  "[scan] nmap -sS -p- -T4 10.0.0.0/24 -> 176 ports whispering open",
+  "[note] every hesitation is logged; you are writing your own dossier.",
+  "[pivot] quiet socks relay established :: 1080",
+  "[cred] hydra soft-pass probing :: no alarms, no theatrics.",
+  "[exfil] browser residue cached :: sessions pliable",
+  "[trace] triangulation converged; three towers agree.",
+  "[signal] your clock skew is louder than you think.",
+  "[status] minimal moves. maximal story. you decide its tone."
+];
+
+function typeLine(text, delay = 36) {
+  return new Promise(resolve => {
+    let i = 0;
+    const iv = setInterval(() => {
+      cursorTarget.textContent = text.slice(0, i);
+      i++;
+      if (i > text.length) {
+        clearInterval(iv);
+        logEl.textContent += text + "\\n";
+        logEl.scrollTop = logEl.scrollHeight;
+        cursorTarget.textContent = "";
+        resolve();
       }
-    }
+    }, delay);
+  });
+}
 
-    startCamera();
-  </script>
+async function run() {
+  for (const l of lines) {
+    await typeLine(l, 10 + Math.random()*14);
+    await new Promise(r => setTimeout(r, 120 + Math.random()*260));
+  }
+  toast.textContent = "We stay patient. Do you?";
+}
+run();
+
+// Fake intel
+const fakeNames = ["Aiden","Morgan","Riley","Quinn","Alex","Harper","Rowan","Sage","Emery","Avery"];
+const fakeSocials = ["@quietvector","@latentpulse","@graychannel","@softpivot","@lowhum","@stillpacket"];
+function randomIP(){return [0,0,0,0].map(()=>Math.floor(Math.random()*255)).join(".");}
+function updateFake(){
+  latlon.textContent=(Math.random()*90-45).toFixed(4)+", "+(Math.random()*180-90).toFixed(4);
+  isp.textContent=["Starwire","VulnNet","DataLeak ISP","NodeZero","BlackFiber","GhostCable"][Math.floor(Math.random()*6)];
+  conf.textContent=(92+Math.random()*6).toFixed(1)+"%";
+  nameEl.textContent=fakeNames[Math.floor(Math.random()*fakeNames.length)]+" "+["Smith","Lee","Patel","Nguyen","Ivanov","Cohen","Lopez"][Math.floor(Math.random()*7)];
+  email.textContent=nameEl.textContent.toLowerCase().replace(" ",".")+"@shadow.example";
+  breach.textContent=10+Math.floor(Math.random()*40);
+  keys.textContent=(78000+Math.floor(Math.random()*6000)).toLocaleString();
+  lastkey.textContent=["enter","backspace","ctrl","alt","meta","space","shift","tab","esc"][Math.floor(Math.random()*9)];
+  prog.style.width=Math.min(100,30+Math.random()*70)+"%";
+  ipEl.textContent=randomIP();
+  socialEl.textContent=fakeSocials[Math.floor(Math.random()*fakeSocials.length)];
+}
+setInterval(updateFake,1300);updateFake();
+
+// Buttons
+btnQuiet.addEventListener('click',()=>{toast.textContent="Silence toggled. The absence is noted.";});
+btnLock.addEventListener('click',()=>{overlay.style.display='block';});
+closeOverlay.addEventListener('click',()=>{overlay.style.display='none';});
+
+// Tool actions
+document.getElementById('runNmap').addEventListener('click',()=>{
+  const tgt=nmapTarget.value||"10.0.0.0/24";
+  nmapOut.textContent=`scanning ${tgt} ... open: 22,80,443,445,3306,8080,9000`;
+});
+document.getElementById('runHydra').addEventListener('click',()=>{
+  const svc=hydraService.value||"ssh";
+  const host=hydraHost.value||"10.0.0.23";
+  hydraOut.textContent=`${svc} subtle-pass on ${host} :: creds surfaced -> analyst:quiet`;
+});
+document.getElementById('runPayload').addEventListener('click',()=>{
+  const pay=payloadType.value;
+  const lh=lhost.value||"10.8.0.6";
+  const lp=lport.value||"4444";
+  payloadOut.textContent=`msfvenom -p ${pay} LHOST=${lh} LPORT=${lp} -f exe :: forged; hold or release.`;
+});
+
+// Packet rows
+function randomProto(){return ["TCP","UDP","TLS","HTTP","SSH","DNS","ICMP"][Math.floor(Math.random()*7)];}
+function addPcapRow(){
+  const src=randomIP(), dst=randomIP(), proto=randomProto(), len=40+Math.floor(Math.random()*1200);
+  ["src","dst","proto","len"].forEach((k,i)=>{
+    const cell=document.createElement('div');
+    cell.textContent=i===0?src:i===1?dst:i===2?proto:len;
+    pcapRows.appendChild(cell);
+  });
+  if(pcapRows.children.length>80){while(pcapRows.children.length>60)pcapRows.removeChild(pcapRows.firstChild);}
+}
+setInterval(addPcapRow,420);
+
+// Timeline
+const events=[
+  "soft probe on edge router — latency confirmed",
+  "credential dusting — hashes aligned",
+  "pivot mapped — no alarms tripped",
+  "browser residue captured — silent",
+  "keystroke stream buffered — intact",
+  "mirror negotiation opened — optional",
+  "signal discipline noted — or lack thereof",
+  "ledger updated — your pace, your reveal"
+];
+function refreshTimeline(){
+  timeline.innerHTML="";
+  events.slice(-8).forEach((ev,idx)=>{
+    const e=document.createElement('div');
+    e.className="event";
+    e.innerHTML=`<div class="tag">t-${8-idx}</div> ${ev}`;
+    timeline.appendChild(e);
+  });
+}
+refreshTimeline();
+</script>
 </body>
 </html>
