@@ -1,5 +1,5 @@
 #!/bin/sh
 
 echo "Hello World!"
-ping doniyor.org
 fastfetch
+ping doniyor.org
