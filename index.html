@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Read and listen to the Holy Quran with translations and audio recitation." />
+  <title>Al-Quran – Read & Listen</title>
+
+  <!-- Google Fonts: Inter (UI) + Amiri Quran (Arabic) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ─── Loading overlay ─────────────────────────────────────────── -->
+<div id="loading-overlay" class="loading-overlay" aria-live="polite" aria-label="Loading">
+  <div class="spinner"></div>
+  <p>Loading…</p>
+</div>
+
+<!-- ─── Top Navigation ─────────────────────────────────────────── -->
+<header class="navbar" role="banner">
+  <div class="nav-start">
+    <button id="sidebar-toggle" class="icon-btn" aria-label="Toggle sidebar" title="Toggle sidebar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <a href="#home" class="brand" aria-label="Al-Quran home">
+      <span class="brand-arabic" lang="ar">القرآن</span>
+      <span class="brand-latin">Al-Quran</span>
+    </a>
+  </div>
+
+  <div class="nav-center">
+    <form class="search-form" id="search-form" role="search" aria-label="Search Quran">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="search" id="search-input" class="search-input"
+             placeholder="Search verses, topics…" autocomplete="off" />
+      <button type="submit" class="search-btn" aria-label="Search">Search</button>
+    </form>
+  </div>
+
+  <div class="nav-end">
+    <button id="bookmarks-nav-btn" class="icon-btn" aria-label="Bookmarks" title="Bookmarks" data-view="bookmarks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+      </svg>
+    </button>
+    <button id="settings-btn" class="icon-btn" aria-label="Settings" title="Settings">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+    </button>
+    <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle theme">
+      <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg id="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- ─── App layout ──────────────────────────────────────────────── -->
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar" aria-label="Surah list">
+    <div class="sidebar-header">
+      <h2 class="sidebar-title">Surahs</h2>
+      <input type="search" id="surah-filter" class="surah-filter"
+             placeholder="Filter…" aria-label="Filter surahs" />
+    </div>
+    <ul id="surah-list" class="surah-list" role="listbox" aria-label="Select a Surah"></ul>
+  </aside>
+
+  <!-- Sidebar overlay (mobile) -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+  <!-- Main content -->
+  <main id="main-content" class="main-content" role="main" tabindex="-1">
+    <!-- Injected by app.js -->
+  </main>
+</div>
+
+<!-- ─── Audio Player (fixed bottom) ───────────────────────────── -->
+<div id="audio-player" class="audio-player hidden" role="region" aria-label="Audio player">
+  <div class="player-verse-info">
+    <span id="player-chapter-name" class="player-chapter">—</span>
+    <span id="player-verse-ref" class="player-verse">—</span>
+  </div>
+
+  <div class="player-controls">
+    <button id="player-prev" class="player-btn" aria-label="Previous verse" title="Previous">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+    </button>
+    <button id="player-play" class="player-btn player-play-btn" aria-label="Play/Pause" title="Play">
+      <svg id="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <button id="player-next" class="player-btn" aria-label="Next verse" title="Next">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+    </button>
+  </div>
+
+  <div class="player-progress-area">
+    <span id="player-current-time" class="player-time">0:00</span>
+    <div class="progress-bar-wrap" id="progress-bar-wrap" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="progress-bar-bg">
+        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+      </div>
+    </div>
+    <span id="player-duration" class="player-time">0:00</span>
+  </div>
+
+  <div class="player-extras">
+    <button id="player-repeat" class="player-btn small" aria-label="Toggle repeat" title="Repeat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+        <polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+      </svg>
+    </button>
+    <div class="volume-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+      </svg>
+      <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.05" value="1" aria-label="Volume" />
+    </div>
+    <button id="player-close" class="player-btn small" aria-label="Close player" title="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <audio id="quran-audio" preload="none"></audio>
+</div>
+
+<!-- ─── Settings Modal ─────────────────────────────────────────── -->
+<div id="settings-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2 id="settings-title">Settings</h2>
+      <button id="settings-close" class="icon-btn" aria-label="Close settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="setting-group">
+        <label class="setting-label" for="setting-translation">Translation</label>
+        <select id="setting-translation" class="setting-select">
+          <option value="131">Dr. Mustafa Khattab (The Clear Quran)</option>
+          <option value="20">Saheeh International</option>
+          <option value="85">Tafsir Ibn Kathir</option>
+          <option value="203">Ruwwad Center</option>
+        </select>
+      </div>
+      <div class="setting-group">
+        <label class="setting-label" for="setting-recitation">Reciter</label>
+        <select id="setting-recitation" class="setting-select">
+          <option value="7">Mishari Rashid Alafasy</option>
+          <option value="1">Abdullah Al-Juhany</option>
+          <option value="2">AbdulBaset AbdulSamad</option>
+          <option value="4">Abu Bakr al-Shatri</option>
+        </select>
+      </div>
+      <div class="setting-group">
+        <label class="setting-label" for="setting-font-size">Arabic Font Size</label>
+        <select id="setting-font-size" class="setting-select">
+          <option value="small">Small</option>
+          <option value="medium" selected>Medium</option>
+          <option value="large">Large</option>
+          <option value="xlarge">Extra Large</option>
+        </select>
+      </div>
+      <div class="setting-group">
+        <label class="setting-label">Display Options</label>
+        <div class="toggle-row">
+          <span>Show Transliteration</span>
+          <label class="toggle">
+            <input type="checkbox" id="setting-transliteration" checked />
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+        <div class="toggle-row">
+          <span>Show Translation</span>
+          <label class="toggle">
+            <input type="checkbox" id="setting-translation-toggle" checked />
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+        <div class="toggle-row">
+          <span>Auto-play next verse</span>
+          <label class="toggle">
+            <input type="checkbox" id="setting-autoplay" />
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button id="settings-save" class="btn btn-primary">Save Settings</button>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="js/api.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
